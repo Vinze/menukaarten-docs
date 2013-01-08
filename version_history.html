@@ -44,22 +44,23 @@
 
 <h2>Version 0.2:</h2>
 <span class="bold">Framework:</span> SexyFramework<br />
-<p>The first version is version 0.2. The idea that arose during the phase before that was the first version and after some tests this version was created. The naming of the folders was more like a summary of the files it contained. The Lib folder contained the files with the classes that were extended by basically all the other files or very important files for the system, like the config-file, base controller and model and a database-file. The routes were also described in a file in this folder.</p>
+<p>The first version is version 0.2. The idea that arose during the phase before was the first version and after some tests this version was created. The naming of the folders was more like a summary of the files it contained. The Lib folder contained the files with the classes that were extended by basically all the other files or very important files for the system, like the config-file, base controller and model and a database-file. The routes were also described in a file in this folder.</p>
 
 <h2>Version 0.3:</h2>
 <span class="bold">Framework:</span> SexyFramework<br />
 <ul>
-	<li>Switched to new folder structure	(application, assets, config, core with modules and helpers, template)</li>
-	<li>removed ORM</li>
-	<li>created base_view from view-stuff from the base_controller</li>
-	<li>model now loaded in base model instead of base_controller</li>
+	<li>Switched to new folder structure
+		<p>The previous version had a folder structure that was just made, not thought thru. In this version the folders are rearranged to a better structure where the names still show what is in the folder. The folders containing the controllers, models and views are now in the application folder, which made it more clear and easier to work with. Lib was renamed to core, because that is what it is. It wasn't a folder with libraries anymore. There are also two subfolders in core, namely modules and helpers. A module is a class which can be extended, like an admin-part of the website. A helper is a class that helps you with for instance translation or creating HTML.</p>
+	</li>
+	<li>Removed ORM
+		<p>The ORM class is removed. The name wasn’t right for the class and it was pretty hard to write a good ORM, so the decision was made to get rid of it.</p>
+	</li>
+	<li>Created base_view from view-stuff from the base_controller
+	<p><span class="italic">Because controllers and models had their base file, the views wanted one too.</span> To keep methods and variables organised, the base controller was cleaned of the view methods. These were combined into the base view.</p>
+	</li>
+	<li>Model ??? now loaded in base model instead of base controller</li>
 	<li>templates renamed to template</li>
 </ul>
-The previous version had a folder structure that was just made, not thought thru. In this version the folders are rearranged to a better structure where the names still show what is in the folder. The folders controllers, models and views are now in the application folder, which made it more clear and easier to work with. 
-
-The ORM class is removed. The name wasn’t right for the class and it was pretty hard to write a good ORM, so the decision was made to get rid of it.
-Because controllers and models had their base file, the views wanted one too.
-
 <h2>Version 0.4:</h2>
 <span class="bold">Framework:</span> SexyFramework<br />
 <ul>
