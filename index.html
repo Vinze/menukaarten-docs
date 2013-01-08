@@ -7,7 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/print.css" media="print">
 	<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
 	<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
-	<link rel="stylesheet" type="text/css" href="assets/css/shThemeMidnight.css" media="screen,print">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="assets/js/shCore.js"></script>
 	<script type="text/javascript" src="assets/js/shBrushCss.js"></script>
@@ -16,7 +15,7 @@
 	<script type="text/javascript" src="assets/js/shBrushSql.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			var pages = ['introduction', 'example'];
+			var pages = ['introduction', 'example', 'version_history'];
 			
 			$.each(pages, function(index, page) {
 				
@@ -40,6 +39,9 @@
 <div id="container">
 </div>
 <script type="text/javascript">
+	console.log(SyntaxHighlighter.defaults['brush']);
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
 	SyntaxHighlighter.all();
 </script>
 </body>

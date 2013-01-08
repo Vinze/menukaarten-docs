@@ -1,12 +1,11 @@
 body{
 	height:	100%;
 	width: 100%;
-	background: #26292c;
 }
 	#menu{
-		width: 200px;
-		height: 400px;	
-		background: #EDEDED;
+		width: 160px;
+		padding: 20px 0px;
+		border-bottom: 1px solid #EDEDED;
 		position: absolute;
 		left: 50%;
 		margin-left: -450px;
@@ -21,12 +20,12 @@ body{
 					text-transform:capitalize;
 				}
 	#container{
-		width: 700px;
+		padding: 20px;
+		width: 660px;
 		height: 100%;
 		position: absolute;
 		left: 50%;
 		margin-left: -250px;
-		background: #EDEDED;
 	}
 		#container .section{
 			
