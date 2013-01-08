@@ -35,11 +35,30 @@
 
 <!-- START CONTENT -->
 <h1>Views</h1>
-<h2>->render()</h2>
+<h2>Rendering views</h2>
 <p>All views are loaded from the directory application/views
 In case you want to render the file index.php from the directory application/views/users/ all you need to do in the controller is the following:</p>
-$this->view->render(‘users/index’)
-<h2>->render()</h2>
+<pre class="brush: php">
+$this->view->render('users/index')
+</pre>
+
+<h2>Setting a template</h2>
+<p>By default the template file templates/default.php is loaded in the view. The content of the view is then passed to a $content variable. To create a new template you can do the following:
+Create the file templates/test.php and copy-paste:</p>
+<pre class="brush: xml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Template test&lt;/title&gt;
+		&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id="content"&gt;
+			&lt;?php echo $content ?&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre>
 
 <!-- END CONTENT -->
 	

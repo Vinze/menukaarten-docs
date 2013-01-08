@@ -11,7 +11,7 @@ a {
 
 a:link, a:visited {
 	text-decoration: 		underline;
-	color:					#404040;
+	color:					#2B2B2B;
 }
 
 a:hover, a:active {
@@ -78,6 +78,7 @@ pre.code {
 	overflow: 				hidden;	
 	font:					normal 13px Arial,Helvetica,"Liberation Sans","DejaVu Sans Condensed",sans-serif;
 	line-height: 			150%;
+	color:					#2B2B2B;
 }
 
 #menu-wrapper {
