@@ -1,0 +1,39 @@
+body{
+	height:	100%;
+	width: 100%;
+	background: #26292c;
+}
+	#menu{
+		width: 200px;
+		height: 400px;	
+		background: #EDEDED;
+		position: absolute;
+		left: 50%;
+		margin-left: -450px;
+	}
+		#left_navigation{
+			list-style-type: none;
+		}
+			#left_navigation li{
+				
+			}
+				#left_navigation li a{
+					text-transform:capitalize;
+				}
+	#container{
+		width: 700px;
+		height: 100%;
+		position: absolute;
+		left: 50%;
+		margin-left: -250px;
+		background: #EDEDED;
+	}
+		#container .section{
+			
+		}
+			#container .section .section_anchor{
+				
+			}
+			#container .section .imported{
+				
+			}

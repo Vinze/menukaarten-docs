@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>SexyFramework Documentation</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css" media="screen,print">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="assets/css/print.css" media="print">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var pages = ['introduction', 'example'];
+			
+			$.each(pages, function(index, page) {
+				
+				var anchor = '<li><a href="' + page + '_anchor">' + page + '</a></li>';
+				var section = '<div class="section"><a class="section_anchor" id="' + page + '_anchor"></a><div id="' + page + '" class="imported"></div></div>';
+				
+				$('#left_navigation').append(anchor);
+				
+				$('#container').append(section);
+				
+				$('#' + page).load('pages/' + page + '.html');
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="menu">
+	<ul id="left_navigation">
+	</ul>
+</div>
+<div id="container">
+</div>
+
+</body>
+</html>
