@@ -4,6 +4,15 @@
 		<title>Menukaarten-docs</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="assets/css/stylesheet.css">
+		
+		<link rel="stylesheet" href="assets/css/print.css" media="print">
+				
+		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
+
 	</head>
 	
 	<body id="main">
@@ -30,7 +39,7 @@
 Passwords are that are saved to the database are appended with a security salt. This salt is hardcoded in the user model and can only be changed by the technical staff. After adding the salt the password gets encrypted as a SHA1 hash.
 Example of the file: 
 <span class="bold">models/user_model.php</span>
-<pre>
+<pre class="brush: php">
 private $salt = 'PAwEr&^52sd+=2Y%T';
 
 public function encrypt($password) {
@@ -92,7 +101,7 @@ When a user has forgotten it’s password there a option at the login page to re
 
 <h2>Sessions</h2>
 <p>Because all controllers used for the dashboard extend on the Admin_Controller they have access to the session function. When checking if a user is logged in you can use the following function:</p>
-<pre>
+<pre class="brush: php">
 if ($this->logged_in) {
   // user is logged in
 }
@@ -152,6 +161,11 @@ When the $access variable is omitted, it defaults to the user role of 1. Which m
 
 				</div>
 			</div>
-		</div>	
+		</div>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>	
 	</body>
 </html>
