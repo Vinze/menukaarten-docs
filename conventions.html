@@ -42,7 +42,7 @@
 Functions are lowercase and also use an underscore.</p>
 
 Example: <span class="bold">user_model.php</span>
-<pre class="brush: php">
+<pre class="code">
 class User_Model extends Base_Model {
 	public function find_by_id($id) {
 	}
@@ -50,7 +50,7 @@ class User_Model extends Base_Model {
 </pre>
 
 Example: <span class="bold">category_model.php</span>
-<pre class="brush: php">
+<pre class="code">
 class Category_Model extends Base_Model {
 		public function save($data, $id) {
 	}
@@ -61,7 +61,7 @@ class Category_Model extends Base_Model {
 <p>Class names are in CamelCase and underscrore, have to end with _Controller, and are written in plural. All functions are in lowercase and separated with an underscore, and have to start with action_.</p>
 
 Example: <span class="bold">users_controller.php</span>
-<pre class="brush: php">
+<pre class="code">
 class Users_Controller extends Base_Controller {
 	public function action_index() {
 	}
@@ -72,7 +72,7 @@ class Users_Controller extends Base_Controller {
 
 <h2>Views</h2>
 <p>Views files are placed in the main views directory in a subdirectory named after the controller which uses them. All files need to be lowercase and nicely grouped together. Some examples:</p>
-<pre class="brush: plain">
+<pre class="code">
 users/index.php
 users/new.php
 cms/admin/index.php

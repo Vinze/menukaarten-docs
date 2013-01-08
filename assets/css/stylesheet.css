@@ -64,6 +64,13 @@ th {
 	text-align: 			left;
 }
 
+pre.code {
+	font:					12px "Consolas", monospace;
+	margin:					0 0 10px;
+	padding:				10px;
+	background-color:		#FFF7CC;
+	border:					1px solid #CCC;
+}
 
 #container {
 	margin:					20px auto;

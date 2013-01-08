@@ -34,30 +34,12 @@
 				<div id="content">
 
 <!-- START CONTENT -->
-
-<h1>Controllers</h1>
-<p>Controllers are loaded by the router and default to the following format:</p>
-<pre class="brush: plain">
-http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
-</pre>
-
-<p>For example, to view a user with the id 32, the following url should work:</p>
-<pre class="brush: plain">http://www.website.com/users/view/32</pre>
-
-<p>
-This will call the controller Users_Controller, the action action_view and will set the id variable in the router. To get the requested id, all you have to do is:</p>
-<pre class="brush: php">
-$user_id = get('id')
-</pre>
-
-<h2>Redirect</h2>
-<p>When redirecting to another page, call the following action from the controller:</p>
-<pre class="brush: php">$this->redirect('users/index')</pre>
-
-Or to redirect to an external website:
-<pre class="brush: php">
-$this->redirect('http:://www.google.com/')
-</pre>
+<h1>Views</h1>
+<h2>->render()</h2>
+<p>All views are loaded from the directory application/views
+In case you want to render the file index.php from the directory application/views/users/ all you need to do in the controller is the following:</p>
+$this->view->render(‘users/index’)
+<h2>->render()</h2>
 
 <!-- END CONTENT -->
 	
