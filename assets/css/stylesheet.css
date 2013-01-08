@@ -3,7 +3,6 @@
 	padding: 				0;
 }
 
-
 a {
 	text-decoration: 		underline;
 	cursor:					pointer;
@@ -77,7 +76,7 @@ pre.code {
 	width: 					960px;
 	overflow: 				hidden;	
 	font:					normal 13px Arial,Helvetica,"Liberation Sans","DejaVu Sans Condensed",sans-serif;
-	line-height: 			150%;
+	line-height: 			160%;
 	color:					#2B2B2B;
 }
 
