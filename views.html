@@ -34,6 +34,7 @@
 				<div id="content">
 
 <!-- START CONTENT -->
+
 <h1>Views</h1>
 <h2>Rendering views</h2>
 <p>All views are loaded from the directory application/views
@@ -45,7 +46,8 @@ $this->view->render('users/index')
 <h2>Setting a template</h2>
 <p>By default the template file templates/default.php is loaded in the view. The content of the view is then passed to a $content variable. To create a new template you can do the following:
 Create the file templates/test.php and copy-paste:</p>
-<pre class="brush: xml">
+
+<pre class="brush: html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -59,6 +61,32 @@ Create the file templates/test.php and copy-paste:</p>
 	&lt;/body&gt;
 &lt;/html&gt;
 </pre>
+
+<p>Then, in the controller, you can load the new template and render a view in it with:</p>
+<pre class="brush: php">
+$view = load::view('test');
+$view->render('users/index');
+</pre>
+
+
+<h2>Flash messages:</h2>
+<p>
+To display a flash messages after a page redirect you can use the following:
+</p>
+<p>
+	For an error message the msg function accepts 3 variables; class, 
+	title and an optional array with errors, for example:
+</p>
+<pre class="brush: php">
+$errors = array('Username cant be blank', 'No valid e-mail address entered');
+
+$this->view->msg('error', 'User not saved, the following errors occurd', $errors);
+</pre>
+
+
+$this->view->set('user', $_POST);
+$this->view->render('users/login');
+$this->render_msg()
 
 <!-- END CONTENT -->
 	
