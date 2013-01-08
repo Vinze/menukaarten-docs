@@ -12,6 +12,8 @@
 				<div id="menu">
 					<h1>Inhoudsopgave</h1>
 					<ul>
+						<li><a href="index.html">Startpagina</a></li>
+						<li><a href="conventions.html">Conventions</a></li>
 						<li><a href="security.html">Security</a></li>
 						<li><a href="controllers.html">Controllers</a></li>
 						<li><a href="views.html">Views</a></li>
@@ -130,10 +132,9 @@ if ($this->logged_in) {
 	</tr>
 </table>
 
-
-
-User rights/roles
-Different controllers or methods can require a certain minimal role a user has to be. These user rights can be set in the class variable $access. See the following example:
+<h2>User rights/roles</h2>
+<p>Different controllers or methods can require a certain minimal role a user has to be. These user rights can be set in the class variable $access. See the following example:</p>
+<pre>
 protected $access = array(
   'default_access' => 100,
   'login' => 0,
@@ -141,11 +142,12 @@ protected $access = array(
   'forgot_password' => 0,
   'reset_password' => 0
 );
-In this example all methods require a user with a role of at least 100. The methods login, logout, forgot_password and reset_password require a role of 0, this means users that aren’t logged in.
-When the $access variable is omitted, it defaults to the user role of 1. Which means that all controllers extended on the Admin_Controller are protected so only logged in users can access that methods.
+</pre>
+<p>In this example all methods require a user with a role of at least 100. The methods login, logout, forgot_password and reset_password require a role of 0, this means users that aren’t logged in.
+When the $access variable is omitted, it defaults to the user role of 1. Which means that all controllers extended on the Admin_Controller are protected so only logged in users can access that methods.</p>
 
-Changing user settings
-The user role is saved in the session, we’ve done it this way so we don’t have to pull the user from the database on each page. The downside of storing the user role in the session is that it doesn’t get updated when the role is changed in the database. To work around this, the user session gets unset when the roles are changed. This means the user needs to login again when the page get refreshed.
+<h2>Changing user settings</h2>
+<p>The user role is saved in the session, we’ve done it this way so we don’t have to pull the user from the database on each page. The downside of storing the user role in the session is that it doesn’t get updated when the role is changed in the database. To work around this, the user session gets unset when the roles are changed. This means the user needs to login again when the page get refreshed.</p>
 <!-- END CONTENT -->
 
 				</div>

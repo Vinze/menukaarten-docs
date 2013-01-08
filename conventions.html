@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<title>Menukaarten-docs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="assets/css/stylesheet.css">
+	</head>
+	
+	<body id="main">
+		<div id="container">
+			<div id="menu-wrapper">
+				<div id="menu">
+					<h1>Inhoudsopgave</h1>
+					<ul>
+						<li><a href="index.html">Startpagina</a></li>
+						<li><a href="conventions.html">Conventions</a></li>
+						<li><a href="security.html">Security</a></li>
+						<li><a href="controllers.html">Controllers</a></li>
+						<li><a href="views.html">Views</a></li>
+						<li><a href="models.html">Models</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+				<div id="content">
+
+<!-- START CONTENT -->
+<h1>Conventions</h1>
+<h2>Files</h2>
+<p>To ensure a good working of the different framework parts it is necessary to code by some predefined conventions. All file names are lowercase, and words are separated by an underscore. For example: config.php, user_settings.php, base_model.php, form_helper.php.</p>
+
+<h2>Models</h2>
+<p>Class names are written in CamelCase and underscore, end with _Model, and are singular.
+Functions are lowercase and also use an underscore.</p>
+
+Example: <span class="bold">user_model.php</span>
+<pre class="brush: php">
+class User_Model extends Base_Model {
+	public function find_by_id($id) {
+	}
+}
+</pre>
+
+Example: <span class="bold">category_model.php</span>
+<pre>
+class Category_Model extends Base_Model {
+		public function save($data, $id) {
+	}
+}
+</pre>
+
+<h2>Controllers</h2>
+<p>Class names are in CamelCase and underscrore, have to end with _Controller, and are written in plural. All functions are in lowercase and separated with an underscore, and have to start with action_.</p>
+
+Example: <span class="bold">users_controller.php</span>
+<pre>
+class Users_Controller extends Base_Controller {
+	public function action_index() {
+	}
+	public function action_edit() {
+	}
+}
+</pre>
+
+<h2>Views</h2>
+<p>Views files are placed in the main views directory in a subdirectory named after the controller which uses them. All files need to be lowercase and nicely grouped together. Some examples:</p>
+<pre>
+users/index.php
+users/new.php
+cms/admin/index.php
+</pre>
+
+
+<!-- END CONTENT -->
+
+				</div>
+			</div>
+		</div>	
+	</body>
+</html>
+
