@@ -19,7 +19,7 @@
 		<div id="container">
 			<div id="menu-wrapper">
 				<div id="menu">
-					<h1>Inhoudsopgave</h1>
+					<h1>Table of contens</h1>
 					<ul>
 						<li><a href="index.html">Startpagina</a></li>
 						<li><a href="conventions.html">Conventions</a></li>
@@ -27,6 +27,7 @@
 						<li><a href="controllers.html">Controllers</a></li>
 						<li><a href="views.html">Views</a></li>
 						<li><a href="models.html">Models</a></li>
+						<li><a href="version_history.html">Version History</a></li>
 					</ul>
 				</div>
 			</div>
@@ -36,7 +37,7 @@
 <!-- START CONTENT -->
 <h1>Security</h1>
 <h2>Password hashing</h2>
-Passwords are that are saved to the database are appended with a security salt. This salt is hardcoded in the user model and can only be changed by the technical staff. After adding the salt the password gets encrypted as a SHA1 hash.
+<p>Passwords are that are saved to the database are appended with a security salt. This salt is hardcoded in the user model and can only be changed by the technical staff. After adding the salt the password gets encrypted as a SHA1 hash.</p>
 Example of the file: 
 <span class="bold">models/user_model.php</span>
 <pre class="brush: php">

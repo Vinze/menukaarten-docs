@@ -53,12 +53,12 @@
 }
 
 .syntaxhighlighter {
-  width: 100% !important;
-  margin: 1em 0 1em 0 !important;
+  
   position: relative !important;
   overflow: auto !important;
   font-size: 1em !important;
-  padding: 8px 0 !important;
+  padding: 5px !important;
+  margin: 0 0 15px 0 !important;
 }
 .syntaxhighlighter.source {
   overflow: hidden !important;

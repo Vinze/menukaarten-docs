@@ -19,7 +19,7 @@
 		<div id="container">
 			<div id="menu-wrapper">
 				<div id="menu">
-					<h1>Inhoudsopgave</h1>
+					<h1>Table of contens</h1>
 					<ul>
 						<li><a href="index.html">Startpagina</a></li>
 						<li><a href="conventions.html">Conventions</a></li>
@@ -27,6 +27,7 @@
 						<li><a href="controllers.html">Controllers</a></li>
 						<li><a href="views.html">Views</a></li>
 						<li><a href="models.html">Models</a></li>
+						<li><a href="version_history.html">Version History</a></li>
 					</ul>
 				</div>
 			</div>
@@ -44,8 +45,7 @@ http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 <p>For example, to view a user with the id 32, the following url should work:</p>
 <pre class="brush: plain">http://www.website.com/users/view/32</pre>
 
-<p>
-This will call the controller Users_Controller, the action action_view and will set the id variable in the router. To get the requested id, all you have to do is:</p>
+<p>This will call the controller Users_Controller, the action action_view and will set the id variable in the router. To get the requested id, all you have to do is:</p>
 <pre class="brush: php">
 $user_id = get('id')
 </pre>
@@ -55,9 +55,7 @@ $user_id = get('id')
 <pre class="brush: php">$this->redirect('users/index')</pre>
 
 Or to redirect to an external website:
-<pre class="brush: php">
-$this->redirect('http:://www.google.com/')
-</pre>
+<pre class="brush: php">$this->redirect('http:://www.google.com/')</pre>
 
 <!-- END CONTENT -->
 	
