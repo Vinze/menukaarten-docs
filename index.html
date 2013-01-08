@@ -11,11 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
 		
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script type="text/javascript" src="assets/js/shCore.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushCss.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushJScript.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushPhp.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushSql.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
 		
 	</head>
 	
@@ -39,9 +35,14 @@
 <!-- START CONTENT -->
 
 <!-- END CONTENT -->
-
+	
 				</div>
 			</div>
-		</div>	
+		</div>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
 	</body>
 </html>

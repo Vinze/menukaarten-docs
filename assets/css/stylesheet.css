@@ -50,14 +50,6 @@ li {
 	margin-left: 			20px;
 }
 
-pre {
-	font: 					12px "Consolas", monospace;
-	margin:					10px 0;
-	padding:				10px;
-	background-color:		#FFF7CC;
-	border:					1px solid #CCC;
-}
-
 table {
 	margin:					0 0 10px;
 	border-collapse: 		collapse;

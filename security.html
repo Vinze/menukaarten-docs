@@ -11,11 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
 		
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script type="text/javascript" src="assets/js/shCore.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushCss.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushJScript.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushPhp.js"></script>
-		<script type="text/javascript" src="assets/js/shBrushSql.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
 
 	</head>
 	
@@ -41,7 +37,7 @@
 Passwords are that are saved to the database are appended with a security salt. This salt is hardcoded in the user model and can only be changed by the technical staff. After adding the salt the password gets encrypted as a SHA1 hash.
 Example of the file: 
 <span class="bold">models/user_model.php</span>
-<pre>
+<pre class="brush: php">
 private $salt = 'PAwEr&^52sd+=2Y%T';
 
 public function encrypt($password) {
@@ -103,7 +99,7 @@ When a user has forgotten it’s password there a option at the login page to re
 
 <h2>Sessions</h2>
 <p>Because all controllers used for the dashboard extend on the Admin_Controller they have access to the session function. When checking if a user is logged in you can use the following function:</p>
-<pre>
+<pre class="brush: php">
 if ($this->logged_in) {
   // user is logged in
 }
@@ -163,6 +159,11 @@ The user role is saved in the session, we’ve done it this way so we don’t ha
 
 				</div>
 			</div>
-		</div>	
+		</div>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>	
 	</body>
 </html>
