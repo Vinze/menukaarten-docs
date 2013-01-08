@@ -11,15 +11,14 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
 		
 		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
-		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
-		
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>		
 	</head>
 	
 	<body id="main">
 		<div id="container">
 			<div id="menu-wrapper">
 				<div id="menu">
-					<h1>Table of contens</h1>
+					<h1>Table of contents</h1>
 					<ul>
 						<li><a href="index.html">Startpagina</a></li>
 						<li><a href="conventions.html">Conventions</a></li>
@@ -28,6 +27,7 @@
 						<li><a href="views.html">Views</a></li>
 						<li><a href="models.html">Models</a></li>
 						<li><a href="version_history.html">Version History</a></li>
+						<li><a href="database.html">Database design</a></li>
 					</ul>
 				</div>
 			</div>
@@ -75,20 +75,22 @@ $view->render('users/index');
 To display a message after a page redirect you can use the following flash message. The flash message acc
 </p>
 
-<p>
-	For an error message the msg function accepts 3 variables; class, 
-	title and an optional array with errors, for example:
-</p>
 
+For an error message the msg function accepts 3 variables; class, title and an optional array with errors, for example:<br>
 <pre class="brush: php">
 $errors = array('Username cant be blank', 'No valid e-mail address entered');
 
 $this->view->msg('error', 'User not saved, the following errors occurd', $errors);
 </pre>
 
-<p>To display a notification:</p>
+To display a notification:<br>
 <pre class="brush: php">
+$this->view->msg('notification', 'Please update you settings');
+</pre>
 
+To display a success message:<br>
+<pre class="brush: php">
+$this->view->msg('success', 'User has been successfully saved.');
 </pre>
 
 $this->view->set('user', $_POST);

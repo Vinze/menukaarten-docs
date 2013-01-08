@@ -19,7 +19,7 @@
 		<div id="container">
 			<div id="menu-wrapper">
 				<div id="menu">
-					<h1>Table of contens</h1>
+					<h1>Table of contents</h1>
 					<ul>
 						<li><a href="index.html">Startpagina</a></li>
 						<li><a href="conventions.html">Conventions</a></li>
@@ -28,6 +28,7 @@
 						<li><a href="views.html">Views</a></li>
 						<li><a href="models.html">Models</a></li>
 						<li><a href="version_history.html">Version History</a></li>
+						<li><a href="database.html">Database design</a></li>
 					</ul>
 				</div>
 			</div>
@@ -37,62 +38,84 @@
 <!-- START CONTENT -->
 <h1>Models</h1>
 
-<h2>Finding rows</h2>
-<h3>Find a user by id</h3>
-<p>To find a user with a certain id:</p>
+<h2>Find</h2>
+<h3>Find a row by id</h3>
+To the user with the id 232<br>
 <pre class="brush: php">
-// Find a user with the id 232
-$user->find(232)
+$user->find(232);
+</pre>
 
-// Find a user with the id 2
-$user->find(2)
+To the user with the id 2<br>
+<pre class="brush: php">
+$user->find(2);
+</pre>
+
+<h3>Find all rows</h3>
+To find all users from the database:<br>
+<pre class="brush: php">
+$user->find('all');
+</pre>
+Or you can just type:<br>
+<pre class="brush: php">
+$user->find();
+</pre>
+
+<h3>Get just one result from the database</h3>
+Get the first user<br>
+<pre class="brush: php">
+$user->find('one');
+</pre>
+
+<h2>Where</h2>
+Find one user who's firstname is Jan:<br>
+<pre class="brush: php">
+$user->where('firstname  = ?', 'Jan')->find('one');
+</pre>
+
+Find all users who's firstname can be multiple values:<br>
+<pre class="brush: php">
+$user->where('firstname = ?', array('Jan', 'Piet', 'Dirk')->find('all');
+</pre>
+
+Find users with a certain first and lastname:<br>
+<pre class="brush: php">
+$user->where('firstname = ? AND lastname = ?', array('Jan', 'de Boer'))->find('all');
+</pre>
+
+<h2>Selecting fields</h2>
+By default, the model return all fields with *. Optionally you can specify with field you want to return bij using the select function. You can give it an array with the fields you want, example:<br>
+<pre class="brush: php">
+$user->select('firstname', 'age', 'hometown')->find('all');
 </pre>
 
 
-Find all users from the database
-$user->find(‘all’)
-Or:
-$user->find()
-
-Find the first user from the database
-$user->find(‘one’)
-
-<h2>Finding where</h2>
-->where()
-Find one user who’s firstname is Jan:
-$user->where(firstname  = ?’, ‘Jan’)->find(‘one’)
-
-Find all users who’s firstname can be multiple values:
-$user->where(‘firstname = ?’, array(‘Jan’, ‘Piet’, ‘Dirk’)->find(‘all’)
-
-Find users with a certain first and lastname:
-$user->where('firstname = ? AND lastname = ?', array('Jan', 'de Boer'))->find(‘all’);
-
-<h2>Selecting fields</h2>
-->select()
-By default, the model return all fields with *. Optionally you can specify with field you want to return bij using the select function. You can give it an array with the fields you want, example:
-$user->select(‘firstname’, age’, ‘hometown’)->find(‘all’)
-
-
 <h2>Sorting the results</h2>
-->sort()
-To sort all users by lastname and then firstname, use:
-$user->sort(‘lastname ASC, firstname ASC)->find()
+To sort all users by lastname and then firstname, use:<br>
+<pre class="brush: php">
+$user->sort('lastname ASC, firstname ASC')->find();
+</pre>
 
-To sort the users by age, oldest first:
-$user->sort(‘age DESC’)->find(‘all’)
+To sort the users by age, oldest first:<br>
+<pre class="brush: php">
+$user->sort('age DESC')->find('all');
+</pre>
 
 <h2>Limit the results</h2>
-->limit()
-To limit the number of results, you can specify a limit.
-Get the users 10 to 20:
-$user->limit(10, 10)->find(‘all’)
+<p>To limit the number of results, you can specify a limit.</p>
+Get the users 10 to 20:<br>
+<pre class="brush: php">
+$user->limit(10, 10)->find('all');
+</pre>
 
 Get the users 0 to 50:
-$user->limit(0, 50)->find(‘all’)
+<pre class="brush: php">
+$user->limit(0, 50)->find('all');
+</pre>
 
 Get the users 50 to 75:
-$user->limit(50, 25)->find(‘all’)
+<pre class="brush: php">
+$user->limit(50, 25)->find('all');
+</pre>
 
 <h2>Set a custom table</h2>
 - set_table
