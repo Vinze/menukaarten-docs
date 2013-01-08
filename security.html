@@ -4,13 +4,13 @@
 		<title>Menukaarten-docs</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="assets/css/stylesheet.css">
-		
+
 		<link rel="stylesheet" href="assets/css/print.css" media="print">
 				
 		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
 		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
 		
-		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
 
 	</head>
@@ -43,7 +43,7 @@ Example of the file:
 private $salt = 'PAwEr&^52sd+=2Y%T';
 
 public function encrypt($password) {
-  return sha1($this->salt.$password);
+	return sha1($this->salt.$password);
 }
 </pre>
 <h2>Login procedure</h2>
@@ -103,7 +103,7 @@ When a user has forgotten it’s password there a option at the login page to re
 <p>Because all controllers used for the dashboard extend on the Admin_Controller they have access to the session function. When checking if a user is logged in you can use the following function:</p>
 <pre class="brush: php">
 if ($this->logged_in) {
-  // user is logged in
+	// user is logged in
 }
 </pre>
 
@@ -143,13 +143,13 @@ if ($this->logged_in) {
 
 <h2>User rights/roles</h2>
 <p>Different controllers or methods can require a certain minimal role a user has to be. These user rights can be set in the class variable $access. See the following example:</p>
-<pre>
+<pre class="brush: php">
 protected $access = array(
-  'default_access' => 100,
-  'login' => 0,
-  'logout' => 0,
-  'forgot_password' => 0,
-  'reset_password' => 0
+	'default_access' => 100,
+	'login' => 0,
+	'logout' => 0,
+	'forgot_password' => 0,
+	'reset_password' => 0
 );
 </pre>
 <p>In this example all methods require a user with a role of at least 100. The methods login, logout, forgot_password and reset_password require a role of 0, this means users that aren’t logged in.
@@ -162,10 +162,6 @@ When the $access variable is omitted, it defaults to the user role of 1. Which m
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			SyntaxHighlighter.defaults['gutter'] = false;
-			SyntaxHighlighter.defaults['toolbar'] = false;
-			SyntaxHighlighter.all();
-		</script>	
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter_settings.js"></script>
 	</body>
 </html>
