@@ -3,7 +3,6 @@
 	padding: 				0;
 }
 
-
 a {
 	text-decoration: 		underline;
 	cursor:					pointer;
@@ -22,14 +21,14 @@ a:hover, a:active {
 h1 {
 	font-size:				24px;
 	font-weight: 			normal;
-	margin:					20px 0 15px 0;
+	margin:					0 0 20px;
 	color:					#009900;
 }
 
 h2 {
 	font-size:				18px;
 	font-weight: 			normal;
-	margin:					20px 0 10px 0;
+	margin:					0 0 10px;
 	color:					#006e00;
 }
 
@@ -40,7 +39,7 @@ h3 {
 }
 
 p {
-	margin: 				0 0 10px 0;
+	margin: 				0 0 15px 0;
 }
 
 ul {
@@ -49,7 +48,7 @@ ul {
 
 li {
 	padding-left: 			5px;
-	margin-left: 			20px;
+	margin-left: 			25px;
 }
 
 table {
@@ -79,7 +78,7 @@ pre.code {
 	width: 					960px;
 	overflow: 				hidden;	
 	font:					normal 13px Arial,Helvetica,"Liberation Sans","DejaVu Sans Condensed",sans-serif;
-	line-height: 			150%;
+	line-height: 			160%;
 	color:					#2B2B2B;
 }
 
@@ -126,7 +125,7 @@ pre.code {
 }
 
 .list {
-	margin:					0 0 10px;
+	margin:					0 0 15px;
 }
 
 .bold {

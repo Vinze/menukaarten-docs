@@ -19,7 +19,7 @@
 		<div id="container">
 			<div id="menu-wrapper">
 				<div id="menu">
-					<h1>Inhoudsopgave</h1>
+					<h1>Table of contens</h1>
 					<ul>
 						<li><a href="index.html">Startpagina</a></li>
 						<li><a href="conventions.html">Conventions</a></li>
@@ -27,6 +27,7 @@
 						<li><a href="controllers.html">Controllers</a></li>
 						<li><a href="views.html">Views</a></li>
 						<li><a href="models.html">Models</a></li>
+						<li><a href="version_history.html">Version History</a></li>
 					</ul>
 				</div>
 			</div>
@@ -71,18 +72,24 @@ $view->render('users/index');
 
 <h2>Flash messages:</h2>
 <p>
-To display a flash messages after a page redirect you can use the following:
+To display a message after a page redirect you can use the following flash message. The flash message acc
 </p>
+
 <p>
 	For an error message the msg function accepts 3 variables; class, 
 	title and an optional array with errors, for example:
 </p>
+
 <pre class="brush: php">
 $errors = array('Username cant be blank', 'No valid e-mail address entered');
 
 $this->view->msg('error', 'User not saved, the following errors occurd', $errors);
 </pre>
 
+<p>To display a notification:</p>
+<pre class="brush: php">
+
+</pre>
 
 $this->view->set('user', $_POST);
 $this->view->render('users/login');

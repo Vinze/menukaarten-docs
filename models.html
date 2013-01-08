@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<title>Menukaarten-docs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="assets/css/stylesheet.css" media="screen">
+		
+		<link rel="stylesheet" href="assets/css/print.css" media="print">
+				
+		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
+		
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
+		
+	</head>
+	
+	<body id="main">
+		<div id="container">
+			<div id="menu-wrapper">
+				<div id="menu">
+					<h1>Table of contens</h1>
+					<ul>
+						<li><a href="index.html">Startpagina</a></li>
+						<li><a href="conventions.html">Conventions</a></li>
+						<li><a href="security.html">Security</a></li>
+						<li><a href="controllers.html">Controllers</a></li>
+						<li><a href="views.html">Views</a></li>
+						<li><a href="models.html">Models</a></li>
+						<li><a href="version_history.html">Version History</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+				<div id="content">
+
+<!-- START CONTENT -->
+<h1>Models</h1>
+
+<h2>Finding rows</h2>
+<h3>Find a user by id</h3>
+<p>To find a user with a certain id:</p>
+<pre class="brush: php">
+// Find a user with the id 232
+$user->find(232)
+
+// Find a user with the id 2
+$user->find(2)
+</pre>
+
+
+Find all users from the database
+$user->find(‘all’)
+Or:
+$user->find()
+
+Find the first user from the database
+$user->find(‘one’)
+
+<h2>Finding where</h2>
+->where()
+Find one user who’s firstname is Jan:
+$user->where(firstname  = ?’, ‘Jan’)->find(‘one’)
+
+Find all users who’s firstname can be multiple values:
+$user->where(‘firstname = ?’, array(‘Jan’, ‘Piet’, ‘Dirk’)->find(‘all’)
+
+Find users with a certain first and lastname:
+$user->where('firstname = ? AND lastname = ?', array('Jan', 'de Boer'))->find(‘all’);
+
+<h2>Selecting fields</h2>
+->select()
+By default, the model return all fields with *. Optionally you can specify with field you want to return bij using the select function. You can give it an array with the fields you want, example:
+$user->select(‘firstname’, age’, ‘hometown’)->find(‘all’)
+
+
+<h2>Sorting the results</h2>
+->sort()
+To sort all users by lastname and then firstname, use:
+$user->sort(‘lastname ASC, firstname ASC)->find()
+
+To sort the users by age, oldest first:
+$user->sort(‘age DESC’)->find(‘all’)
+
+<h2>Limit the results</h2>
+->limit()
+To limit the number of results, you can specify a limit.
+Get the users 10 to 20:
+$user->limit(10, 10)->find(‘all’)
+
+Get the users 0 to 50:
+$user->limit(0, 50)->find(‘all’)
+
+Get the users 50 to 75:
+$user->limit(50, 25)->find(‘all’)
+
+<h2>Set a custom table</h2>
+- set_table
+- Data validation
+<!-- END CONTENT -->
+	
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter_settings.js"></script>
+	</body>
+</html>
