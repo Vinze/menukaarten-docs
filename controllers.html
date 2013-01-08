@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<title>Menukaarten-docs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="assets/css/stylesheet.css" media="screen">
+		
+		<link rel="stylesheet" href="assets/css/print.css" media="print">
+				
+		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
+		
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
+		
+	</head>
+	
+	<body id="main">
+		<div id="container">
+			<div id="menu-wrapper">
+				<div id="menu">
+					<h1>Inhoudsopgave</h1>
+					<ul>
+						<li><a href="index.html">Startpagina</a></li>
+						<li><a href="conventions.html">Conventions</a></li>
+						<li><a href="security.html">Security</a></li>
+						<li><a href="controllers.html">Controllers</a></li>
+						<li><a href="views.html">Views</a></li>
+						<li><a href="models.html">Models</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+				<div id="content">
+
+<!-- START CONTENT -->
+
+<h1>Controllers</h1>
+Controllers are loaded by the router and default to the following format:
+http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
+
+For example, to view a user with the id 32, the following url should work:
+
+http://www.website.com/users/view/32
+
+This will call the controller Users_Controller, the action action_view and will set the id variable in the router. To get the requested id, all you have to do is:
+$user_id = get(‘id’)
+
+Redirect
+When redirecting to another page, call the following action from the controller:
+$this->redirect(‘users/index’)
+
+Or to redirect to an external website:
+
+$this->redirect(‘http:://www.google.com/’)
+
+<!-- END CONTENT -->
+	
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter_settings.js"></script>
+	</body>
+</html>
