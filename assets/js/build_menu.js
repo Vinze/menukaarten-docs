@@ -81,7 +81,28 @@ function build_menu(pages) {
 	return html;	
 }
 
+/*
+var i = 0;
+function total_documentation(pages) {
+	$.each(pages, function (index, item){
+		
+		if (typeof item.subpages != "undefined") {
+			total_documentation(item.subpages);
+		}
+		var new_div = '<div id=' + i + '_content_block></div>';
+		$('#content-wrapper').append(new_div);
+		$('#' + i + '_content_block').load(item.page + ' #content');
+		
+		console.log(i);
+		
+		i++;
+	});
+	
+}
+*/
+
 $(function() {
 	var menu = build_menu(pages);
 	$('#menu ul').append(menu);
+//	total_documentation(pages);
 });
