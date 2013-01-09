@@ -20,7 +20,7 @@
 				<div id="menu">
 					<h1>Table of contents</h1>
 					<ul>
-						<li><a href="index.html">Startpagina</a></li>
+						<li><a href="index.html">Introduction</a></li>
 						<li><a href="conventions.html">Conventions</a></li>
 						<li><a href="security.html">Security</a></li>
 						<li><a href="controllers.html">Controllers</a></li>
@@ -39,6 +39,8 @@
 <h1>Models</h1>
 
 <h2>Find</h2>
+<p>Models represent knowledge. A model could be a single object (rather uninteresting), or it could be some structure of objects.</p>
+<p>There should be a one-to-one correspondence between the model and its parts on the one hand, and the represented world as perceived by the owner of the model on the other hand. <sup><a href="#1">[1]</a></sup></p>
 <h3>Find a row by id</h3>
 To the user with the id 232<br>
 <pre class="brush: php">
@@ -118,8 +120,13 @@ $user->limit(50, 25)->find('all');
 </pre>
 
 <h2>Set a custom table</h2>
+<p>
 - set_table
 - Data validation
+</p>
+<p class="footnote">
+	[1] - <a href="http://www.codinghorror.com/blog/2008/05/understanding-model-view-controller.html" name="1" target="_blank">Codinghorror - Understanding model-view-controller</a><br>
+</p>
 <!-- END CONTENT -->
 	
 				</div>

@@ -53,6 +53,11 @@ p.note{
 	background:				#FFF6CC;
 }
 
+p.footnote {
+	border-top: 			1px solid #CCC;
+	font-size: 				11px;
+}
+
 ul {
 	list-style: 			disc;
 }
@@ -139,6 +144,7 @@ pre.code {
 #content {
 	padding: 				5px 20px;
 	border-left: 			1px solid #CCC;
+	text-align: 			justify;
 }
 
 .list {
