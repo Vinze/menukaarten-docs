@@ -26,7 +26,7 @@
 <!-- START CONTENT -->
 
 <h1>Form helper</h1>
-<p>The form helper contains function to help you easily build HTML forms. It can create textfields, selects, checkboxes, textareas and others. Below are a few examples of each available function and the resulting HTML.</p>
+<p>The form helper contains functions to help you easily build HTML forms. It can create textfields, selects, checkboxes, textareas and others. Below are a few examples of each available function and the resulting HTML.</p>
 
 
 <h2>Opening a form</h2>
@@ -125,7 +125,7 @@ echo form::label('username', 'Username:'));
 &lt;label for="id_username"&gt;Username:&lt;/label&gt;
 </pre>
 
-<h2>Select</h2>
+<h2>Select options</h2>
 <pre class="brush: php">
 form::select($name, $options, $selected, $attributes);
 </pre>
@@ -153,7 +153,7 @@ echo form::select('user', $options, '49');
 &lt;/select&gt;
 </pre>
 
-<h2>Radio</h2>
+<h2>Radio buttons</h2>
 To create an input field with the type text, you can use the following function:
 <pre class="brush: php">
 form::radio($name, $options, $checked, $attributes);
@@ -183,7 +183,73 @@ echo form::radio('active', $options, 1);
 &lt;/label&gt;
 </pre>
 
-<p></p>
+<h2>Textarea</h2>
+For creating a textarea the following function can be used.
+<pre class="brush: php">
+form::textarea($name, $value, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$value <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo form::textarea('description', 'Lorem ipsum dolar sit amet');
+// Will return:
+&lt;textarea name="description" id="id_description"&gt;Lorem ipsum dolar sit amet&lt;/textarea&gt;
+</pre>
+
+<h2>File upload</h2>
+<pre class="brush: php">
+form::file($name, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo form::file('image');
+// Will return:
+&lt;input type="file" name="image" /&gt;
+</pre>
+
+<h2>Hidden field</h2>
+<pre class="brush: php">
+form::hidden($name, $value, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$value <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo form::hidden('user_id', '542');
+// Will return:
+&lt;input type="hidden" name="user_id" value="542" /&gt;
+</pre>
+
+<h2>Submit button</h2>
+<pre class="brush: php">
+form::textarea($name, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo form::submit('Save user');
+// Will return:
+&lt;input type="submit" value="Save user" /&gt;
+</pre>
+
 <!-- END CONTENT -->
 	
 				</div>
