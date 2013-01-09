@@ -150,3 +150,11 @@ pre.code {
 .italic {
 	font-style: 			italic;
 }
+
+/* Some extra highlights, that can be used outside the code blocks */
+.php_variable{
+	color:					#A70 !important;
+}
+.php_string{
+	color:					blue !important;
+}
