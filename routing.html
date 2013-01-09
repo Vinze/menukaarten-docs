@@ -89,7 +89,7 @@ http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 </tbody>
 </table>
 <h2>Subfolders</h2>
-<p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. </p>
+<p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. If this is true, it continues the same way as it would normally do, but then in the subfolder.</p>
 <h2>Custom Routes</h2>
 <p>For some reasons, like SEO, there is a way to change the appearance of the URL. In the configuration folder, there is a file called routes.json, which looks like the following code:</p>
 <pre class="brush: js">
@@ -103,7 +103,7 @@ http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 </pre>
 <p>The column at the left is the URL that was requested. The router will always check this file first, to see if there is a route that matches the requested URL. If there is a match, the router will take the right column and explode the string. The part in front of the colon is the controller that has to be searched for. The part after the colon the method in that controller. </p>
 <p>Note that the third and fourth entry have a controller with a slash in it. The router will check for slashes and explode the string. The part in front of the slash indicates that the controller file is placed in a subfolder. The part after the slash is the controller name.</p>
-<p>The last feature that custom routes has, allows you to get some extra parameters passed from the URL. These variables can be accessed in the right controller by the function get($id), where the name of the variable is the same as you defined in the routes.</p>
+<p>The last feature that custom routes has, allows you to get some extra parameters passed from the URL. These variables can be accessed in the right controller by the function get('id'), where the name of the parameter is the same as you defined in the routes.</p>
 <!-- END CONTENT -->
 	
 				</div>
