@@ -33,25 +33,77 @@
 <p>The router makes sure that the request that comes in will call the right controller and the right method. It also makes it possible to have change the controller that will be called via custom routes.</p>
 
 <h2>Default behaviour</h2>
-<p>The router gets the requested URL from the .htaccess file, which stores it in the <span class="php_variable">$_GET[<span class="php_string">'req'</span>]</span> variable. The router then breaks it down into an array, in which the first value is the controller, the second one the method and the third one an id. This is shown in the following example.<p>
+<p>The router gets the requested URL from the .htaccess file, which stores it in the $_GET['req'] variable. The router then breaks it down into an array, in which the first value is the controller, the second one the method and the third one an id. This is shown in the following example.<p>
 <pre class="brush: plain">
 http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 </pre>
-<p>If there are more values than the three that were mentioned, the rest of the values is stored in in the same order as the URL. Those values can be retrieved by using the function get($part), where $part is the number at which place the value is stored in the array.</p>
+<p>If there are more values than the three that were mentioned, the rest of the values is stored in in the same order as the URL. Those values can be retrieved by using the function get($part), where $part is the number at which place the value is stored in the array. This function is explained further in this section</p>
 <p>If noting comes after the base URL, the router will load the default controller and method, which are specified in ???</p>
+<h2>Retrieving URL parts</h2>
+<p>If for some reason it is needed to get a part of the URL, the function get() could be used. This function explodes the URL into pieces. For example we use the URL 'www.example.com/users/view/432'. The get() function returns each part as follows:</p>
+
+<table>
+<thead>
+	<tr>
+		<th>Function with parameter</th>
+		<th>Result</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>get('url')</td>
+		<td>www.example.com/users/view/432</td>
+	</tr>
+	<tr>
+		<td>get('request')</td>
+		<td>/users/view/432</td>
+	</tr>
+	<tr>
+		<td>get('page')</td>
+		<td>users</td>
+	</tr>
+	<tr>
+		<td>get(0)</td>
+		<td>users</td>
+	</tr>
+	<tr>
+		<td>get('controller')</td>
+		<td>users_controller</td>
+	</tr>
+	<tr>
+		<td>get('action')</td>
+		<td>view</td>
+	</tr>
+	<tr>
+		<td>get('1')</td>
+		<td>view</td>
+	</tr>
+	<tr>
+		<td>get('id')</td>
+		<td>432</td>
+	</tr>
+	<tr>
+		<td>get(2)</td>
+		<td>432</td>
+	</tr>
+</tbody>
+</table>
 <h2>Subfolders</h2>
-<p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. </p>
-<h2>Custom Routes</h2>
+<p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. If this is true, it continues the same way as it would normally do, but then in the subfolder.</p>
+<h2 id="custom_routes">Custom Routes</h2>
 <p>For some reasons, like SEO, there is a way to change the appearance of the URL. In the configuration folder, there is a file called routes.json, which looks like the following code:</p>
 <pre class="brush: js">
 {
 	"about":				"staticpages:about",
 	"contact":				"staticpages:contact",
-	"login" :				"cms/users:login",
-	"logout" :				"cms/users:logout"
+	"login":				"cms/users:login",
+	"logout":				"cms/users:logout",
+	"profile/:id":			"users:view"
 }
 </pre>
-<p>If for some reason, like SEO, the URL for a page needs to be modified</p>
+<p>The column at the left is the URL that was requested. The router will always check this file first, to see if there is a route that matches the requested URL. If there is a match, the router will take the right column and explode the string. The part in front of the colon is the controller that has to be searched for. The part after the colon the method in that controller. </p>
+<p>Note that the third and fourth entry have a controller with a slash in it. The router will check for slashes and explode the string. The part in front of the slash indicates that the controller file is placed in a subfolder. The part after the slash is the controller name.</p>
+<p>The last feature that custom routes has, allows you to get some extra parameters passed from the URL. These variables can be accessed in the right controller by the function get('id'), where the name of the parameter is the same as you defined in the routes.</p>
 <!-- END CONTENT -->
 	
 				</div>

@@ -37,41 +37,39 @@
 <p>The first version is version 0.2. The idea that arose during the phase before was the first version and after some tests this version was created. The naming of the folders was more like a summary of the files it contained. The Lib folder contained the files with the classes that were extended by basically all the other files or very important files for the system, like the config-file, base controller and model and a database-file. The routes were also described in a file in this folder.</p>
 
 <h2>Version 0.3:</h2>
+<p>In this version many methods changed between classes. Mostly because the class they were in wasn't the right one. For example: the method to load views was a method in the base controller. It is now positioned in the base view.</p>
 <span class="bold">Framework:</span> SexyFramework<br />
 <ul>
 	<li>Switched to new folder structure
 		<p>The previous version had a folder structure that was just made, not thought thru. In this version the folders are rearranged to a better structure where the names still show what is in the folder. The folders containing the controllers, models and views are now in the application folder, which made it more clear and easier to work with. Lib was renamed to core, because that is what it is. It wasn't a folder with libraries anymore. There are also two subfolders in core, namely modules and helpers. A module is a class which can be extended, like an admin-part of the website. A helper is a class that helps you with for instance translation or creating HTML.</p>
 	</li>
 	<li>Removed ORM
-		<p>The ORM class is removed. The name wasn’t right for the class and it was pretty hard to write a good ORM, so the decision was made to get rid of it.</p>
+		<p>The ORM class is removed. It was pretty hard to write a good ORM and the file was obsolete, so the decision was made to get rid of it. Query methods like find and find_by_id are placed in the base model. This also means that all models now extend at the base model directly.</p>
 	</li>
 	<li>Created base view with view methods from the base controller
-		<p><span class="italic">Because controllers and models had their base file, the views wanted one too.</span> To keep methods and variables organised, the base controller was cleaned of the view methods. These were combined into the base view.</p>
+		<p>When the base controller was updated, a lot of methods in it seemed to be in the wrong place, because they had more to do with views than with controllers. To keep methods and variables organised, the base controller was cleaned of these view methods, which were then combined into the base view.</p>
 	</li>
 	<li>Model now loaded in base model instead of base controller
-		<p>The method to load models is replaced to the base model. This for the same reason the base view was created, to keep things organised</p>
-	</li>
-	<li>templates renamed to template
-		<p><span class="italic">Because we can???</span></p>
+		<p>The method to load models is replaced to the base model. This for the same reason the base view was created, to keep things organised. Also the base model now handles almost everything that is related to databases, models or queries.</p>
 	</li>
 </ul>
 <h2>Version 0.4:</h2>
 <span class="bold">Framework:</span> SexyFramework<br />
 <ul>
 	<li>Validation Helper built
-		<p>To assist in validating data, the validation helper is created. Rules can be specified in the model. The validation helper is build in a way which is easily expandable.</p>
+		<p>To assist in validating data, the validation helper is created. Rules can be specified in each model. The validation helper is build in a way which is easily expandable. It now has methods to check for numeric types, wether the value that is passed is an e-mailaddress or not. It is implemented in a way which will change later, because it was created to test and not to stay this way.</p>
 	</li>
 	<li>Load Module created
-		<p>A module is build to load views and models. <span class="italic">WHY THE FUCK DID WE DO THIS!!!???</span></p>
+		<p>A module is build to load views and models. Because they have the same purpose, to load things, they are combined into a single module.</p>
 	</li>
 	<li>Router class and router combined to router module
-		<p>The two router files could be combined into one, which keeps things clear. It is made into a module. <span class="italic">AND WHY IS IT A MODULE?</span></p>
+		<p>The two router files could be combined into one, which keeps things clear. It is made into a module.</p>
 	</li>
 	<li>Dbase class removed
-		<p>It became obsolete, so we removed it. The base model does all of the queries and the database class servers the connection</p>
+		<p>It became obsolete, so we removed it. The base model already does all of the queries and the database class serves the connection. It also is better to have base files that work on their own, than have some that require other parts.</p>
 	</li>
 	<li>Removed the DEFAULT_TEMPLATE global variable
-		<p>Templates are now defined in the controllers. In this way it is possible to have a different templates for methods in the same class.</p>
+		<p>Templates are now defined in the controllers. In this way it is possible to have a different templates for methods in the same controller. The main reason for this choice is flexibility.</p>
 	</li>
 </ul>
 
@@ -82,7 +80,7 @@
 		<p>To ensure that there is no need to alter the core, a json is provided, in which routes can be made.</p>
 	</li>
 	<li>Load and router module replaced with a core class
-		<p>Because the framework can not work without these two classes, they were converted to core classes. This also means that modules are an option and must not be required for the framework to work.</p>
+		<p>Because the framework can not work without these two classes, they were converted to core classes. This also means that modules are an option and must not be required for the framework to work. This is a decision that was made to keep things even more clear and to keep files organised.</p>
 	</li>
 	<li>Admin and image modules created
 		<p>To make it easier for programmers to create a section which is protected with a login method, the admin module was created. This also provides security per class and per method. To help resizing and saving images the image module was created.</p>
@@ -102,7 +100,7 @@
 		<p>To ensure that there is always a single database connection and not multiple, the init method of the database class has been rewritten. It now follows the Singleton design pattern. It checks wether it is already active or not, if so, it returns itself. If not, it makes a connection and returns it.</p>
 	</li>
 	<li>Completed plural helper with almost all rules
-		<p>The plural helper is finished. It has all the rules that were found. It could be there are a few missing, but they can be added later.</p>
+		<p>The plural helper is finished. It has all the rules that were found. It could be there are a few missing, but they can be added later. This helper is mostly used to pluralize controllers, which should return the corresponding model. This helper is used in the core of the framework, so maybe it is changed to a core feature later, but for now it is a helper.</p>
 	</li>
 </ul>
 

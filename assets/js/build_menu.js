@@ -46,6 +46,10 @@ var pages = [
 			{
 				'desc':'HTML',
 				'page':'html_helper.html'
+			},
+			{
+				'desc':'Plural',
+				'page':'plural_helper.html'
 			}
 		]
 	},
