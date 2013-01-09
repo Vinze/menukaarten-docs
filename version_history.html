@@ -27,6 +27,7 @@
 						<li><a href="views.html">Views</a></li>
 						<li><a href="models.html">Models</a></li>
 						<li><a href="version_history.html">Version History</a></li>
+						<li><a href="database.html">Database design</a></li>
 					</ul>
 				</div>
 			</div>
@@ -55,37 +56,65 @@
 	<li>Removed ORM
 		<p>The ORM class is removed. The name wasn’t right for the class and it was pretty hard to write a good ORM, so the decision was made to get rid of it.</p>
 	</li>
-	<li>Created base_view from view-stuff from the base_controller
-	<p><span class="italic">Because controllers and models had their base file, the views wanted one too.</span> To keep methods and variables organised, the base controller was cleaned of the view methods. These were combined into the base view.</p>
+	<li>Created base view with view methods from the base controller
+		<p><span class="italic">Because controllers and models had their base file, the views wanted one too.</span> To keep methods and variables organised, the base controller was cleaned of the view methods. These were combined into the base view.</p>
 	</li>
-	<li>Model ??? now loaded in base model instead of base controller</li>
-	<li>templates renamed to template</li>
+	<li>Model now loaded in base model instead of base controller
+		<p>The method to load models is replaced to the base model. This for the same reason the base view was created, to keep things organised</p>
+	</li>
+	<li>templates renamed to template
+		<p><span class="italic">Because we can???</span></p>
+	</li>
 </ul>
 <h2>Version 0.4:</h2>
 <span class="bold">Framework:</span> SexyFramework<br />
 <ul>
-	<li>Validation Helper built</li>
-	<li>Load Module</li>
-	<li>router class and router combined to router module</li>
-	<li>dbase removed</li>
-	<li>removed default template (Global var)</li>
+	<li>Validation Helper built
+		<p>To assist in validating data, the validation helper is created. Rules can be specified in the model. The validation helper is build in a way which is easily expandable.</p>
+	</li>
+	<li>Load Module created
+		<p>A module is build to load views and models. <span class="italic">WHY THE FUCK DID WE DO THIS!!!???</span></p>
+	</li>
+	<li>Router class and router combined to router module
+		<p>The two router files could be combined into one, which keeps things clear. It is made into a module. <span class="italic">AND WHY IS IT A MODULE?</span></p>
+	</li>
+	<li>Dbase class removed
+		<p>It became obsolete, so we removed it. The base model does all of the queries and the database class servers the connection</p>
+	</li>
+	<li>Removed the DEFAULT_TEMPLATE global variable
+		<p>Templates are now defined in the controllers. In this way it is possible to have a different templates for methods in the same class.</p>
+	</li>
 </ul>
 
 <h2>Version 0.5:</h2>
 <span class="bold">Framework:</span> SexyFramework<br />
 <ul>
-	<li>routes now only in config/routes.json</li>
-	<li>load and router module replaced with a core class</li>
-	<li>admin and image modules created</li>
-	<li>base_controller tries to load a model that corresponds with the loaded controller</li>
+	<li>routes now only in config/routes.json
+		<p>To ensure that there is no need to alter the core, a json is provided, in which routes can be made.</p>
+	</li>
+	<li>Load and router module replaced with a core class
+		<p>Because the framework can not work without these two classes, they were converted to core classes. This also means that modules are an option and must not be required for the framework to work.</p>
+	</li>
+	<li>Admin and image modules created
+		<p>To make it easier for programmers to create a section which is protected with a login method, the admin module was created. This also provides security per class and per method. To help resizing and saving images the image module was created.</p>
+	</li>
+	<li>Base controller tries to load a model that corresponds with the loaded controller
+		<p>To make it even more easy for programmers, the framework now tries to get a model that has the singular name of the controller that has been called for. If it does not exist, it does not load anything.</p>
+	</li>
 </ul>
 
 <h2>Version 0.6:</h2>
 <span class="bold">Framework:</span> SexyFramework<br />
 <ul>
-	<li>created text and date helper</li>
-	<li>Applied Singleton design pattern to database</li>
-	<li>completed plural helper with almost all rules</li>
+	<li>Created text and date helper
+		<p>Text helper can create a nice layout for specific types of text. For instance it can create a good layout for prices, with symbols like euro's and dollars. The date helper returns a date in whatever pattern you choose.</p>
+	</li>
+	<li>Applied Singleton design pattern to database
+		<p>To ensure that there is always a single database connection and not multiple, the init method of the database class has been rewritten. It now follows the Singleton design pattern. It checks wether it is already active or not, if so, it returns itself. If not, it makes a connection and returns it.</p>
+	</li>
+	<li>Completed plural helper with almost all rules
+		<p>The plural helper is finished. It has all the rules that were found. It could be there are a few missing, but they can be added later.</p>
+	</li>
 </ul>
 
 <!-- END CONTENT -->
