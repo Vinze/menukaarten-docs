@@ -12,7 +12,13 @@
 		<script type="text/javascript" src="assets/js/build_menu.js"></script>
 	</head>
 	
-	<body id="main">
+	<body>
+		<div id="header-wrapper">
+			<div id="header">
+				<h1>Documentation SexyFramework</h1>
+				<span>Created by Vincent Bremer &amp; Douwe de Haan</span>
+			</div>
+		</div>
 		<div id="container">
 			<div id="menu-wrapper">
 				<div id="menu">
@@ -39,6 +45,28 @@ http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 $user_id = get('id')
 </pre>
 <p class="note">Please note that it is also possible to put controllers in a subfolder, in which case the URL format will be different. This is explained in the <a href="routing.html#custom_routes">routing documentation</a></p>
+
+<h2>The controller class</h2>
+<p>The controller class must me build from a default markup, the bare mininum for an hello world example is:</p>
+
+<span class="bold">application/controllers/users_controller.php</span>
+<pre class="brush: php">
+&lt;?php
+defined('BASE_PATH') or die('No direct script access.');
+
+class Users_Controller extends Base_Controller {
+	public function action_index() {
+		echo 'Hello world!';
+	}
+}
+
+?&gt;
+</pre>
+<p>When you are now browsing to http://www.example.com/users you should see the text "Hello world".</p>
+
+<p class="note">When no action is specified in the URL, it automatically defaults to action_index. If you have an action called action_new, you would need to browse to http://www.example.com/users/new.</p>
+
+
 <h2>Redirect</h2>
 <p>When redirecting to another page, call the following action from the controller:</p>
 <pre class="brush: php">$this->redirect('users/index')</pre>

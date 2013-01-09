@@ -12,7 +12,13 @@
 		<script type="text/javascript" src="assets/js/build_menu.js"></script>
 	</head>
 	
-	<body id="main">
+	<body>
+		<div id="header-wrapper">
+			<div id="header">
+				<h1>Documentation SexyFramework</h1>
+				<span>Created by Vincent Bremer &amp; Douwe de Haan</span>
+			</div>
+		</div>
 		<div id="container">
 			<div id="menu-wrapper">
 				<div id="menu">
@@ -51,7 +57,7 @@ defined('BASE_PATH') or die('No direct script access.');
 
 <h2>Accessing not existing pages</h2>
 <p>With a .htaccess file all requests are routed to the main index.pph file and stored in a $_GET value. When working this way, it's possible to catch all non existing requests and set a clear 404 message width the right header</p>
-Example of our .htaccess file<br>
+<span class="bold">.htaccess</span>
 <pre class="brush: plain">
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -60,8 +66,12 @@ RewriteRule ^(.*)$ index.php?req=$1 [QSA,L]
 </pre>
 
 <h2>Prevent directory listing</h2>
-<p>To prevert users from listing our framework directories</p>
+<p>To prevert users from listing directories we've created a rule in the htaccess file. When a user now tries to list (for example) the application folder, it returns a 403 forbidden page.</p>
+<span class="bold">.htaccess</span>
+<pre class="brush: plain">
 Options -Indexes
+</pre>
+
 <!-- END CONTENT -->
 	
 				</div>

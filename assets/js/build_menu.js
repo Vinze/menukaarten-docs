@@ -64,6 +64,10 @@ var pages = [
 			{
 				'desc':'Framework security',
 				'page':'framework_security.html'
+			},
+			{
+				'desc':'Routes file',
+				'page':'routes_decicions.html'
 			}
 		]
 	}
