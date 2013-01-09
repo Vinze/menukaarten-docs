@@ -73,6 +73,7 @@
 }
 .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
   color: black !important;
+  text-decoration: none !important; /* added by SerendipityNL */
 }
 .syntaxhighlighter .comments, .syntaxhighlighter .comments a {
   color: #008200 !important;
