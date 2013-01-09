@@ -45,13 +45,14 @@
 <p>The router makes sure that the request that comes in will call the right controller and the right method. It also makes it possible to have change the controller that will be called via custom routes.</p>
 
 <h2>Default behaviour</h2>
-<p>The router gets the requested URL from the .htaccess file, which stores it in the <span class="php_variable">$_GET[<span class="php_string">'req'</span>]</span> variable. The default is as follows.<p>
+<p>The router gets the requested URL from the .htaccess file, which stores it in the <span class="php_variable">$_GET[<span class="php_string">'req'</span>]</span> variable. The router then breaks it down into an array, in which the first value is the controller, the second one the method and the third one an id. This is shown in the following example.<p>
 <pre class="brush: plain">
 http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 </pre>
+<p>If there are more values than the three that were mentioned, the rest of the values is stored in in the same order as the URL. Those values can be retrieved by using the function get($part), where $part is the number at which place the value is stored in the array.</p>
 <p>If noting comes after the base URL, the router will load the default controller and method, which are specified in ???</p>
 <h2>Subfolders</h2>
-<p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. <span class="italic">WAT GEBEURT ER PRECIES ALS DIT HET GEVAL IS?</span></p>
+<p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. </p>
 <h2>Custom Routes</h2>
 <!-- END CONTENT -->
 	
