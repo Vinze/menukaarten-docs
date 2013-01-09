@@ -25,7 +25,98 @@
 
 <!-- START CONTENT -->
 <h1>Plural Helper</h1>
-<p>Bla die bla</p>
+<p>The plural helper contains functions to help with pluralizing and singularizing a single word. This is used by the framework itself for retrieving corresponding models, if they exist.</p>
+<h2>Patterns</h2>
+<p>The class is built on a few methods which try to match the input against a set of patterns, which are stored in arrays. The methods will try to match the key to the input and returns the value. Both key and value are made up with regex so they will match to more words and not every single word has to be put into the array. From all the arrays some patterns are shown.</p>
+<ul>
+	<li>
+		Pluralize patterns
+		<p>The keys in this array are patterns of singular words which need to be pluralized.</p>
+		<pre class="brush: php">
+			public static $plural = array(
+				'/(matr|vert|ind)ix|ex$/i'		=> "$1ices",// returns matrices from matrix
+				'/([^aeiouy]|qu)y$/i'			=> "$1ies", // returns categories from category
+				'/(shea|lea|loa|thie)f$/i'		=> "$1ves", // returns leaves from leave
+				'/$/'							=> "s"   // if nothing matched, returns the input + s
+			);
+		</pre>
+	</li>
+	
+	<li>
+		Singularize patterns
+		<p>The keys in this array are patterns of plural words which need to be singularized.</p>
+		<pre class="brush: php">
+			public static $singular = array(
+				'/(vert|ind)ices$/i'				=> "$1ex", // returns index from indeces
+				'/(octop|vir)i$/i'					=> "$1us", // returns virus from viri
+				'/(shoe)s$/i'						=> "$1",   // returns shoe from shoes
+				'/s$/i'								=> ""   // if nothing matched, returns the input - s
+			);
+		</pre>
+	</li>
+	
+	<li>
+		Irregular patterns
+		<p>Sometimes there are words which cannot easily be pluralized / singularized via patterns with regex. These words are irregular and need to be included in this array.</p>
+		<pre class="brush: php">
+			public static $irregular = array(
+				'move'								=> 'moves',
+				'foot'								=> 'feet',
+				'goose'								=> 'geese',
+				'sex'								=> 'sexes',
+				'child'								=> 'children',
+				'man'								=> 'men',
+				'tooth'								=> 'teeth',
+				'person'							=> 'people'
+			);
+		</pre>
+	</li>
+	
+	<li>
+		Uncountable patterns
+		<p>Last but not least there are words which are uncountable. There is not a singular of plural form of the word.</p>
+		<pre class="brush: php">
+			public static $uncountable = array(
+				'sheep',
+				'fish',
+				'deer',
+				'series',
+				'species',
+				'money',
+				'rice',
+				'information',
+				'equipment',
+				'compose'
+			);
+		</pre>
+	</li>
+	<h2>Methods</h2>
+	<p>To use these patterns easily, three methods were created to assist you in altering your words. In the second and third method, the value passed is first matched against the list of uncountable words. If there is no match, the methods try to match it against the values of the irregular list. If there is still no match, each method then matches it against the list corresponding to the method name.</p>
+	
+	<h3>Demodelize</h3>
+	<p>The first method that could help you is the demodelize method. The value that is passed to this method will be check for the model identifier (which is '_model). If the method detects this, it will strip this part from the rest, returning the value without the '_model' part. If it does not have that part, it will return the value that it recieved.</p>
+	<pre class="brush: php">
+		plural::demodelize('user_model');
+		// Will return:
+		'user'
+	</pre>
+	
+	<h3>Pluralize</h3>
+	<p>The second method that can be accessed is the pluralize method. This method uses the demodelize method so that a model name can be passed and made plural. To make it easier to use this method, a function was created called p(). This function makes a callback to the pluralize method and returns the result.</p>
+	<pre class="brush: php">
+		p('user_model');
+		// Will return:
+		'users'
+	</pre>
+	
+	<h3>Singularize</h3>
+	<p>The third and last method in this class is the singularize method. This method does what it says: it takes the value it gets passed and makes it plural. Because of the fact that the word is easily written wrong, there is a function that makes a callback to the singularize method and returns the result.</p>
+	<pre class="brush: php">
+		s('users');
+		// Will return:
+		'user'
+	</pre>
+</ul>
 <!-- END CONTENT -->
 	
 				</div>
