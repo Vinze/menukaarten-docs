@@ -45,13 +45,7 @@ var pages = [
 			},
 			{
 				'desc':'HTML',
-				'page':'html_helpers.html',
-				'subpages':[
-					{
-						'desc':'Form',
-						'page':'form_helpers.html'
-					}
-				]
+				'page':'html_helpers.html'
 			}
 		]
 	}

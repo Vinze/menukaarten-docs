@@ -100,7 +100,7 @@ pre.code {
 
 #menu-wrapper {
 	float:					left;
-	width: 					200px;
+	width: 					220px;
 }
 
 #menu {
@@ -122,9 +122,10 @@ pre.code {
 #menu li li {
 	margin: 				0;
 	padding: 				0 0 0 20px;
+	border-top: 			1px solid #CCC;
 }
 
-#menu li:first-child {
+#menu > ul > li:first-child {
 	border-top: 			none;
 }
 
@@ -143,7 +144,7 @@ pre.code {
 
 #content-wrapper {
 	float: 					left;
-	width: 					760px;
+	width: 					740px;
 }
 
 #content {
