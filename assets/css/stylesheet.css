@@ -15,15 +15,15 @@ a:link, a:visited {
 
 a:hover, a:active {
 	text-decoration: 		underline;
-	color:					#0000E6;
+	color:					#005999;
 }
 
 h1 {
 	font-size:				24px;
 	font-weight: 			normal;
-	margin:					0 0 20px;
+	margin:					0 0 15px;
 	padding: 				0 0 5px;
-	color: 					#004A7F;
+	color: 					#005999;
 	border-bottom: 			1px solid #CCC;
 }
 
@@ -32,7 +32,7 @@ h2 {
 	font-weight: 			normal;
 	margin:					0 0 5px;
 	padding: 				0 0 2px;
-	color: 					#004A7F;
+	color: 					#005999;
 	border-bottom: 			1px solid #CCC;
 }
 
@@ -46,11 +46,12 @@ h3 {
 p {
 	margin: 				0 0 15px 0;
 }
-	p.note{
-		border: 1px solid #A60;
-		padding: 0 5px;
-		/*background: #CCC*/
-	}
+
+p.note{
+	border:					1px solid #E5D8A0;
+	padding:				2px 5px;
+	background:				#FFF6CC;
+}
 
 ul {
 	list-style: 			disc;
