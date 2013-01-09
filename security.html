@@ -24,9 +24,9 @@
 				<div id="content">
 
 <!-- START CONTENT -->
-<h1>Security</h1>
+<h1>User security</h1>
 <h2>Password hashing</h2>
-<p>Passwords are that are saved to the database are appended with a security salt. This salt is hardcoded in the user model and can only be changed by the technical staff. After adding the salt the password gets encrypted as a SHA1 hash.</p>
+<p>Passwords are that are saved to the database are appended with a security salt. This salt is hard coded in the user model and can only be changed by the technical staff. After adding the salt the password gets encrypted as a SHA1 hash.</p>
 Example of the file: 
 <span class="bold">models/user_model.php</span>
 <pre class="brush: php">
@@ -39,7 +39,7 @@ public function encrypt($password) {
 <h2>Login procedure</h2>
 To login as a user the following steps has to be performed:<br>
 <ul class="list">
-	<li>Point the webbrowser to http://restaurantname.menukaarten.nl/login</li>
+	<li>Point the web browser to http://restaurantname.menukaarten.nl/login</li>
 	<li>Enter the login credentials
 		<ul>
 			<li>Check if a user with the specified email address exist</li>
@@ -53,9 +53,9 @@ To login as a user the following steps has to be performed:<br>
 		</ul>
 	</li>
 	
-	<li>When the credentials aren’t valid:
+	<li>When the credentials aren't valid:
 	<ul>
-		<li>Display an error message (E-mail/password don’t match)</li>
+		<li>Display an error message (E-mail/password don't match)</li>
 	</ul>
 	</li>
 	

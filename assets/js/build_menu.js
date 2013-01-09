@@ -8,7 +8,7 @@ var pages = [
 		'page':'conventions.html'
 	},
 	{
-		'desc':'Security',
+		'desc':'User security',
 		'page':'security.html'
 	},
 	{
@@ -41,14 +41,19 @@ var pages = [
 		'subpages':[
 			{
 				'desc':'Form',
-				'page':'form_helpers.html'
+				'page':'form_helper.html'
 			},
 			{
 				'desc':'HTML',
-				'page':'html_helpers.html'
+				'page':'html_helper.html'
 			}
 		]
+	},
+	{
+		'desc':'Decisions &amp; research',
+		'page':'index.html'
 	}
+
 ];
 
 

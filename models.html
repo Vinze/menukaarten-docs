@@ -109,10 +109,22 @@ $user->limit(50, 25)->find('all');
 
 <h2>Set a custom table</h2>
 <p>
-When creating a new model, the name of
-- set_table
-- Data validation
+When creating a new model, the name of model should be the singularized name of the database table. For example; when you have created the model User_Model, the database table it tries to connect to is users (lowercase, and pluralized). It's also possible to set a different table name by setting the $_set_table class variable. When you have a profile model that needs to use the users table, you could to the following:
 </p>
+<pre class="brush: php">
+class Profile_Model extends Base_Model {
+	protected $_set_table = 'users';	
+}
+</pre>
+
+<h2>Inserting data</h2>
+<p>aaa</p>
+
+<h2>Updating data</h2>
+<p>aaa</p>
+
+<h2>Data validation</h2>
+<p>aaa</p>
 <p class="footnote">
 	[1] - <a href="http://www.codinghorror.com/blog/2008/05/understanding-model-view-controller.html" name="1" target="_blank">Codinghorror - Understanding model-view-controller</a><br>
 </p>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Menukaarten-docs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="assets/css/stylesheet.css" media="screen,print">		
+		<link rel="stylesheet" href="assets/css/print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
+		<script type="text/javascript" src="assets/js/build_menu.js"></script>
+	</head>
+	
+	<body id="main">
+		<div id="container">
+			<div id="menu-wrapper">
+				<div id="menu">
+					<h1>Table of contents</h1>
+					<ul></ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+				<div id="content">
+
+<!-- START CONTENT -->
+
+<h1>Form helper</h1>
+<p>The form helper contains function to help you easily build HTML forms. It can create textfields, selects, checkboxes, textareas and others. Below are a few examples of each available function and the resulting HTML.</p>
+
+
+<h2>Opening a form</h2>
+To create a form element you can use the following function:
+<pre class="brush: php">
+form::open($action, $attributes);
+</pre>
+
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$action <span class="small">string optional</span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+
+Opening a form with the method post:<br>
+<pre class="brush: php">
+echo form::open();
+// Will return:
+&lt;form action="http://website.com/users/new" method="post"&gt;
+</pre>
+
+Opening a form with the method get:
+<pre class="brush: php">
+echo form::open('get');
+// Will return:
+&lt;form action="http://website.com/users/new" method="get"&gt;
+</pre>
+
+Opening a form multipart form:
+<pre class="brush: php">
+echo form::open('post', array('enctype' => 'multipart/form-data'));
+// Will return:
+&lt;form action="http://website.com/users/new" method="post" enctype="multipart/form-data"&gt;
+</pre>
+
+<h2>Closing a form</h2>
+The form is closed with the close function, this function doesn't accept any arguments.
+<pre class="brush: php">
+echo form::close();
+// Will return:
+&lt;/form&gt;
+</pre>
+
+<h2>Textfield</h2>
+To create an input field with the type text, you can use the following function:
+<pre class="brush: php">
+form::textfield($name, $values, $attributes);
+</pre>
+
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$values <span class="small">string optional</span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example 1:
+<pre class="brush: php">
+echo form::textfield('username', 'John doe'));
+// Will return:
+&lt;input type="text" name="username" value="John Doe" id="id_username" size="30" /&gt;
+</pre>
+
+Example 2:
+<pre class="brush: php">
+echo form::textfield('age', '43', array('size' => 4, 'class' => 'input'));
+// Will return:
+&lt;input type="text" name="username" value="John Doe" id="id_username" size="4" class="submit" /&gt;
+</pre>
+
+<h2>E-mail</h2>
+The e-mail function is exactly the same as the textfield function, they share the same properties and parameters. Only the type is set to email. See <a href="#textfield">textfield</a> for the syntax.
+<pre class="brush: php">
+form::email($name, $values, $attributes);
+</pre>
+
+<h2>Password</h2>
+The password function is also exactly the same as the textfield function, they share the same properties and parameters. Only the type is set to password. See <a href="#textfield">textfield</a> for the syntax.
+<pre class="brush: php">
+form::password($name, $values, $attributes);
+</pre>
+
+<h2>Label</h2>
+<pre class="brush: php">
+form::label($for, $name, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$for <span class="small">string <span class="red">required</span></span></li>
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example 1:
+<pre class="brush: php">
+echo form::label('username', 'Username:'));
+// Will return:
+&lt;label for="id_username"&gt;Username:&lt;/label&gt;
+</pre>
+
+<h2>Select</h2>
+<pre class="brush: php">
+form::select($name, $options, $selected, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$options <span class="small">array <span class="red">required</span></span></li>
+	<li>$selected <span class="small">string optional</span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example 1:
+<pre class="brush: php">
+$options = array(
+	'21' => 'John Doe',
+	'49' => 'Harry Smith',
+	'80' => 'Bill Williams'
+);
+echo form::select('user', $options, '49');
+
+// Will return:
+&lt;select name="user"&gt;
+	&lt;option value="21"&gt;John Doe&lt;/option&gt;
+	&lt;option value="49" selected="selected"&gt;Harry Smith&lt;/option&gt;
+	&lt;option value="80"&gt;Bill Williams&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+<h2>Radio</h2>
+To create an input field with the type text, you can use the following function:
+<pre class="brush: php">
+form::radio($name, $options, $checked, $attributes);
+</pre>
+
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$name <span class="small">string <span class="red">required</span></span></li>
+	<li>$options <span class="small">array <span class="red">required</span></span></li>
+	<li>$checked <span class="small">string optional</span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example 1:
+<pre class="brush: php">
+$options = array(
+	1 => 'Yes',
+	0 => 'No'
+);
+echo form::radio('active', $options, 1);
+
+// Will return:
+&lt;label class="wrap_label"&gt;
+	&lt;input type="radio" name="active" value="1" checked="checked"&gt; Yes
+&lt;/label&gt;
+&lt;label class="wrap_label"&gt;
+	&lt;input type="radio" name="active" value="0"&gt; No
+&lt;/label&gt;
+</pre>
+
+<p></p>
+<!-- END CONTENT -->
+	
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter_settings.js"></script>
+	</body>
+</html>

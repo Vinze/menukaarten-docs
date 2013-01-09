@@ -1,6 +1,7 @@
 * {
 	margin:					0;
 	padding: 				0;
+	vertical-align:			baseline;
 }
 
 a {
@@ -162,6 +163,15 @@ pre.code {
 }
 .italic {
 	font-style: 			italic;
+}
+
+.small {
+	font-size:				11px;
+	color: 					#404040;
+}
+
+.red {
+	color:					#CC0000;
 }
 
 /* Some extra highlights, that can be used outside the code blocks */
