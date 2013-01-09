@@ -29,8 +29,7 @@
 <h2>Patterns</h2>
 <p>The class is built on a few methods which try to match the input against a set of patterns, which are stored in arrays. The methods will try to match the key to the input and returns the value. Both key and value are made up with regex so they will match to more words and not every single word has to be put into the array. From all the arrays some patterns are shown.</p>
 <ul>
-	<li>
-		Pluralize patterns
+	<h3>Pluralize patterns</h3>
 		<p>The keys in this array are patterns of singular words which need to be pluralized.</p>
 		<pre class="brush: php">
 			public static $plural = array(
@@ -40,10 +39,8 @@
 				'/$/'							=> "s"   // if nothing matched, returns the input + s
 			);
 		</pre>
-	</li>
 	
-	<li>
-		Singularize patterns
+	<h3>Singularize patterns</h3>
 		<p>The keys in this array are patterns of plural words which need to be singularized.</p>
 		<pre class="brush: php">
 			public static $singular = array(
@@ -53,10 +50,8 @@
 				'/s$/i'								=> ""   // if nothing matched, returns the input - s
 			);
 		</pre>
-	</li>
 	
-	<li>
-		Irregular patterns
+	<h3>Irregular patterns</h3>
 		<p>Sometimes there are words which cannot easily be pluralized / singularized via patterns with regex. These words are irregular and need to be included in this array.</p>
 		<pre class="brush: php">
 			public static $irregular = array(
@@ -70,10 +65,8 @@
 				'person'							=> 'people'
 			);
 		</pre>
-	</li>
 	
-	<li>
-		Uncountable patterns
+	<h3>Uncountable patterns</h3>
 		<p>Last but not least there are words which are uncountable. There is not a singular of plural form of the word.</p>
 		<pre class="brush: php">
 			public static $uncountable = array(
@@ -89,7 +82,6 @@
 				'compose'
 			);
 		</pre>
-	</li>
 	<h2>Methods</h2>
 	<p>To use these patterns easily, three methods were created to assist you in altering your words. In the second and third method, the value passed is first matched against the list of uncountable words. If there is no match, the methods try to match it against the values of the irregular list. If there is still no match, each method then matches it against the list corresponding to the method name.</p>
 	
