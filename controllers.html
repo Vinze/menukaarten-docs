@@ -31,20 +31,20 @@
 http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 </pre>
 
-<p>For example, to view a user with the id 32, the following url should work:</p>
+<p>For example, to view a user with the id 32, the following URL should work:</p>
 <pre class="brush: plain">http://www.website.com/users/view/32</pre>
 
 <p>This will call the controller Users_Controller, the action action_view and will set the id variable in the router. To get the requested id, all you have to do is:</p>
 <pre class="brush: php">
 $user_id = get('id')
 </pre>
-<p class="note">Please note that it is also possible to put controllers in a subfolder, in which case the url format will be different. This is explained in the <a href="routing.html">routing documentation</a></p>
+<p class="note">Please note that it is also possible to put controllers in a subfolder, in which case the URL format will be different. This is explained in the <a href="routing.html#custom_routes">routing documentation</a></p>
 <h2>Redirect</h2>
 <p>When redirecting to another page, call the following action from the controller:</p>
 <pre class="brush: php">$this->redirect('users/index')</pre>
 
 Or to redirect to an external website:
-<pre class="brush: php">$this->redirect('http:://www.google.com/')</pre>
+<pre class="brush: php">$this->redirect('http://www.google.com/')</pre>
 
 <!-- END CONTENT -->
 	

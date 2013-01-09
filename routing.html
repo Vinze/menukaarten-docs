@@ -90,15 +90,15 @@ http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 </table>
 <h2>Subfolders</h2>
 <p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. If this is true, it continues the same way as it would normally do, but then in the subfolder.</p>
-<h2>Custom Routes</h2>
+<h2 id="custom_routes">Custom Routes</h2>
 <p>For some reasons, like SEO, there is a way to change the appearance of the URL. In the configuration folder, there is a file called routes.json, which looks like the following code:</p>
 <pre class="brush: js">
 {
 	"about":				"staticpages:about",
 	"contact":				"staticpages:contact",
-	"login" :				"cms/users:login",
-	"logout" :				"cms/users:logout",
-	"profile/:id"			"users:view"
+	"login":				"cms/users:login",
+	"logout":				"cms/users:logout",
+	"profile/:id":			"users:view"
 }
 </pre>
 <p>The column at the left is the URL that was requested. The router will always check this file first, to see if there is a route that matches the requested URL. If there is a match, the router will take the right column and explode the string. The part in front of the colon is the controller that has to be searched for. The part after the colon the method in that controller. </p>
