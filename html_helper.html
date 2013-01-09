@@ -25,7 +25,80 @@
 
 <!-- START CONTENT -->
 <h1>HTML helper</h1>
-<p>Lorum ipsum dolar sit amet...</p>
+<h2>Anchor</h2>
+<p>To create a anchor (link), you can use the following function. This function will automatically add the attribute target="_blank" when the link contains http:// of https://. So links on your own website can me relative from the base path.</p>
+<pre class="brush: php">
+html::a($link, $name, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$name <span class="small">string optional</span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo html::a('users/new', 'New user'));
+// Returns:
+&lt;a href="http://example.com/users/new"&gt;New user&lt;/a&gt;
+
+echo html::a('http://www.google.com', 'Google'));
+// Returns:
+&lt;a href="http://www.google.com" target="_blank"&gt;Google&lt;/a&gt;
+</pre>
+
+<h2>Image</h2>
+<p>To include an image use this function. It will automatically find out it's dimensions and add it as attributes. When no $name has been given the alt attribute will contain the image URL.</p>
+<pre class="brush: php">
+html::image($link, $name, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo html::image('assets/img/car.jpeg', 'My car');
+// Returns:
+&lt;img src="http://example.com/assets/img/car.jpeg" height="504" width="290" name="My car" alt="My car"&gt;
+</pre>
+
+<h2>Stylesheet</h2>
+<p>Create a link to the stylesheet.</p>
+<pre class="brush: php">
+html::stylesheet($link, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo html::stylesheet('assets/css/dashboard.css'));
+// Returns:
+&lt;link href="http://example.com/assets/css/stylesheet.css" rel="stylesheet" type="text/css" /&gt;
+</pre>
+
+
+<h2>Javascript</h2>
+<p>Create a link to the Javascript file.</p>
+<pre class="brush: php">
+html::javascript($link, $attributes);
+</pre>
+<span class="bold">Parameters:</span>
+<ul class="list">
+	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$attributes <span class="small">array optional</span></li>
+</ul>
+Example:
+<pre class="brush: php">
+echo html::javascript('assets/js/jquery.js'));
+// Returns:
+&lt;script type="text/javascript" src="http://example.com/assets/js/jquery.js"&gt;&lt;script&gt;
+</pre>
+
 <!-- END CONTENT -->
 	
 				</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Menukaarten-docs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="assets/css/stylesheet.css" media="screen,print">		
+		<link rel="stylesheet" href="assets/css/print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
+		<script type="text/javascript" src="assets/js/build_menu.js"></script>
+	</head>
+	
+	<body id="main">
+		<div id="container">
+			<div id="menu-wrapper">
+				<div id="menu">
+					<h1>Table of contents</h1>
+					<ul></ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+				<div id="content">
+
+<!-- START CONTENT -->
+<h1>Framework security</h1>
+<h2>MySQL injection</h2>
+<p>Some measures against MySQL injection and preventing users from inserting (html) tags into the database. This function will be called from methods in the Base_Model that are requesting of inserting data from database.</p>
+<pre class="brush: php">
+private function escape($string) {
+	// Remove excessive spaces
+	$string = trim($string);
+
+	// Strip HTML tags
+	$string = strip_tags($string); 
+
+	// Escape the string
+	$string = $this->_db_link->real_escape_string($string);
+
+	// Return a clean and sanitized string
+	return $string;
+}
+</pre>
+
+<h2>Direct access to PHP pages</h2>
+<p>To prevent users from accessing our files directly, it's nessesary to make sure the script dies before starting any functions. We're checking if the global variable BASE_PATH has been set (which happens in the settings.php when the page is loaded correctly), when it is not defined the script dies.
+<pre class="brush: php">
+defined('BASE_PATH') or die('No direct script access.');
+</pre>
+
+<h2>Accessing not existing pages</h2>
+<p>With a .htaccess file all requests are routed to the main index.pph file and stored in a $_GET value. When working this way, it's possible to catch all non existing requests and set a clear 404 message width the right header</p>
+Example of our .htaccess file<br>
+<pre class="brush: plain">
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?req=$1 [QSA,L]
+</pre>
+
+<h2>Prevent directory listing</h2>
+<p>To prevert users from listing our framework directories</p>
+Options -Indexes
+<!-- END CONTENT -->
+	
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter_settings.js"></script>
+	</body>
+</html>

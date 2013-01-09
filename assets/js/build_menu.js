@@ -60,6 +60,10 @@ var pages = [
 			{
 				'desc':'Where clauses',
 				'page':'where_clauses.html'
+			},
+			{
+				'desc':'Framework security',
+				'page':'framework_security.html'
 			}
 		]
 	}
