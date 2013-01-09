@@ -26,8 +26,8 @@
 <!-- START CONTENT -->
 
 <h1>Router</h1>
-<p class="note">De volgende 2 regels moeten nog even uit de router class, iets met niet de core wijzigen om het systeem te laten werken...
-	private $_default_controller = 'menu';
+<p class="note">De volgende 2 regels moeten nog even uit de router class, iets met niet de core wijzigen om het systeem te laten werken...<br />
+	private $_default_controller = 'menu'; <br />
 	private $_default_action = 'index';
 </p>
 <p>The router makes sure that the request that comes in will call the right controller and the right method. It also makes it possible to have change the controller that will be called via custom routes.</p>
@@ -42,6 +42,16 @@ http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
 <h2>Subfolders</h2>
 <p>It is also possible to put controllers in a subfolder in the controller folder. Before any controller is included, the router checks wether there is a folder that has the same name as the first part of the requested URL. </p>
 <h2>Custom Routes</h2>
+<p>For some reasons, like SEO, there is a way to change the appearance of the URL. In the configuration folder, there is a file called routes.json, which looks like the following code:</p>
+<pre class="brush: js">
+{
+	"about":				"staticpages:about",
+	"contact":				"staticpages:contact",
+	"login" :				"cms/users:login",
+	"logout" :				"cms/users:logout"
+}
+</pre>
+<p>If for some reason, like SEO, the URL for a page needs to be modified</p>
 <!-- END CONTENT -->
 	
 				</div>
