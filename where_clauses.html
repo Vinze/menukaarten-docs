@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Menukaarten-docs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="assets/css/stylesheet.css" media="screen,print">		
+		<link rel="stylesheet" href="assets/css/print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
+		<script type="text/javascript" src="assets/js/build_menu.js"></script>
+	</head>
+	
+	<body id="main">
+		<div id="container">
+			<div id="menu-wrapper">
+				<div id="menu">
+					<h1>Table of contents</h1>
+					<ul></ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+				<div id="content">
+
+<!-- START CONTENT -->
+<h1>Where clauses</h1>
+<p>For the base model we needed a function to get results from database matched by a where clause. There are many ways to solve this problem and we've did some search which options are available.</p>
+
+<p>
+We tried building all different methods, and execute the following 2 queries:
+</p>
+
+<span class="bold">Test queries:</span>
+<pre class="brush: sql">
+-- Test query #1
+SELECT * FROM users WHERE hometown = 'Sneek'
+
+-- Test query #2
+SELECT * FROM users WHERE name = 'Vincent' AND age = 23
+</pre>
+
+<p>
+After trying those options we made up a list of advantages and disadvantages of the different options available.
+</p>
+
+<h2>CakePHP and Ruby on Rails</h2>
+<p>CakePHP and Ruby on Rails use the following format:</p>
+<pre class="brush: php">
+// Test query #1
+$user->where('hometown = ?', 'Sneek')
+
+// Test query #2
+$user->where('name = ? AND age = ?', array('Vincent', 20))
+</pre>
+<span class="bold">Advantages</span>
+<ul>
+	<li>No problems combining AND, OR and LIKE clauses</li>
+	<li>The values placed on the question mark are easily escaped</li>
+</ul>
+<span class="bold">Disadvantages</span>
+<ul class="list">
+	<li>You have to manually join the values together with AND or OR clauses</li>
+</ul>
+
+<h2>Kohana</h2>
+<p>Kohana uses the following format:</p>
+<pre class="brush: php">
+// Test query #1
+$user->where('hometown', '=', 'Sneek')
+
+// Test query #2
+$user->where(name, '=', 'Vincent')->where('age', '=', 20)
+</pre>
+<span class="bold">Advantages</span>
+<ul>
+	<li>Pretty easy to understand</li>
+</ul>
+<span class="bold">Disadvantages</span>
+<ul class="list">
+	<li>By default all where clauses are joined with AND, if you want to use OR, you have to use created separate functions</li>
+</ul>
+
+<h2>Activerecord (CodeIgniter)</h2>
+<p>Activerecord uses the following format:</p>
+<pre class="brush: php">
+// Test query #1
+$user->where('hometown =', 'Sneek');
+
+// Test query #2
+$user->where('name =', 'Sneek')->where('age =', 23);
+</pre>
+<span class="bold">Advantages</span>
+<ul>
+	<li>Very clear and easy to understand</li>
+	<li>Values are easily escaped</li>
+</ul>
+<span class="bold">Disadvantages</span>
+<ul class="list">
+	<li>All fields are automatically joined by AND if you want to join it with OR, you have to call other functions.</li>
+</ul>
+
+<h2>Custom</h2>
+<pre class="brush: php">
+// Test query #1
+$user->where("hometown = 'Sneek")
+
+// Test query #2
+$user->where("name = 'Vincent' AND age = 23")
+</pre>
+<span class="bold">Advantages</span>
+<ul>
+	<li>Pure MySQL code, so every combination of where possible.</li>
+</ul>
+<span class="bold">Disadvantages</span>
+<ul class="list">
+	<li>Values are not easily escaped and can't be validated.</li>
+</ul>
+
+<h2>Our chosen solution</h2>
+<p>We've chosen the CakePHP and Ruby on Rails method with some small modifications. We have chosen for this method because it's the most easiest way to program difficult queries, and it's pretty easy to make sure the user input is correctly escaped.</p>
+Some more examples:
+<pre class="brush: php">
+// Search users who's first or lastname contains Tim:
+$user->where('firstname LIKE ? OR lastname LIKE ?', '%tim%')->find();
+
+// Get all users older than 10 but not older than 40
+$user->where('age &gt; ? AND age &lt; ?', array(10, 40))->find();
+
+// Get all users who's hometown is not Amsterdam
+$user->where('hometown != ?', 'Amsterdam')->find();
+</pre>
+
+<!-- END CONTENT -->
+	
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter_settings.js"></script>
+	</body>
+</html>

@@ -55,7 +55,13 @@ var pages = [
 	},
 	{
 		'desc':'Decisions &amp; research',
-		'page':'index.html'
+		'page':'decisions_research.html',
+		'subpages':[
+			{
+				'desc':'Where clauses',
+				'page':'where_clauses.html'
+			}
+		]
 	}
 
 ];
