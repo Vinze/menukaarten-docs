@@ -114,13 +114,18 @@ pre.code {
 }
 
 #menu li {
-	border-bottom: 			1px solid #CCC;
 	margin: 				0;
 	padding: 				0;
+	border-top: 			1px solid #CCC;
 }
 
-#menu li:last-child {
-	border-bottom: 			none;
+#menu li li {
+	margin: 				0;
+	padding: 				0 0 0 20px;
+}
+
+#menu li:first-child {
+	border-top: 			none;
 }
 
 #menu h1 {

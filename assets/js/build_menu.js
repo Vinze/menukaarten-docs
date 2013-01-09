@@ -37,13 +37,42 @@ var pages = [
 	},
 	{
 		'desc':'Helpers',
-		'page':'helpers.html'
+		'page':'helpers.html',
+		'subpages':[
+			{
+				'desc':'Form',
+				'page':'form_helpers.html'
+			},
+			{
+				'desc':'HTML',
+				'page':'html_helpers.html',
+				'subpages':[
+					{
+						'desc':'Form',
+						'page':'form_helpers.html'
+					}
+				]
+			}
+		]
 	}
 ];
 
-$(function() {
+
+function build_menu(pages) {
+	var html = '';
 	$.each(pages, function(index, item) {
-		var menu_item = '<li><a href="'+item.page+'">'+item.desc+'</a></li>';
-		$('#menu ul').append(menu_item);
+		html += '<li><a href="'+item.page+'">'+item.desc+'</a>';
+		if (typeof item.subpages != "undefined") {
+			html += '<ul>';
+			html += build_menu(item.subpages);
+			html += '</ul>';
+		}			
+		html += '</li>';
 	});
+	return html;	
+}
+
+$(function() {
+	var menu = build_menu(pages);
+	$('#menu ul').append(menu);
 });
