@@ -1,18 +1,49 @@
-var pages = {
-	'index.html':'Introduction',
-	'conventions.html':'Conventions',
-	'security.html':'Security',
-	'controllers.html':'Controllers',
-	'views.html':'Views',
-	'models.html':'Models',
-	'version_history.html':'Version history',
-	'database.html':'Database design',
-	'routing.html':'Routing'
-};
+var pages = [
+	{
+		'desc':'Introduction',
+		'page':'index.html'
+	},
+	{
+		'desc':'Conventions',
+		'page':'conventions.html'
+	},
+	{
+		'desc':'Security',
+		'page':'security.html'
+	},
+	{
+		'desc':'Controllers',
+		'page':'controllers.html'
+	},
+	{
+		'desc':'Views',
+		'page':'views.html'
+	},
+	{
+		'desc':'Models',
+		'page':'models.html'
+	},
+	{
+		'desc':'Version history',
+		'page':'version_history.html'
+	},
+	{
+		'desc':'Database design',
+		'page':'database.html'
+	},
+	{
+		'desc':'Routing',
+		'page':'routing.html'
+	},
+	{
+		'desc':'Helpers',
+		'page':'helpers.html'
+	}
+];
 
 $(function() {
-	$.each(pages, function(page, name) {
-		menu_item = '<li><a href="'+page+'">'+name+'</a></li>';
+	$.each(pages, function(index, item) {
+		var menu_item = '<li><a href="'+item.page+'">'+item.desc+'</a></li>';
 		$('#menu ul').append(menu_item);
 	});
 });
