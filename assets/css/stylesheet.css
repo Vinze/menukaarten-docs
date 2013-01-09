@@ -90,6 +90,12 @@ pre.code {
 	border:					1px solid #CCC;
 }
 
+img {
+	border:					1px solid #005999;
+	max-width: 				679px;
+	margin:					0 9px;	
+}
+
 #container {
 	margin:					20px auto;
 	width: 					960px;
