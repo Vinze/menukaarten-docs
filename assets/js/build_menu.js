@@ -1,67 +1,75 @@
 var pages = [
 	{
 		'desc':'Introduction',
-		'page':'index.html'
-	},
-	{
-		'desc':'Installation',
-		'page':'installation.html'
-	},
-	{
-		'desc':'Specifications',
-		'page':'specifications.html'
-	},
-	{
-		'desc':'Conventions',
-		'page':'conventions.html'
-	},
-	{
-		'desc':'User security',
-		'page':'security.html'
-	},
-	{
-		'desc':'Controllers',
-		'page':'controllers.html'
-	},
-	{
-		'desc':'Views',
-		'page':'views.html'
-	},
-	{
-		'desc':'Models',
-		'page':'models.html'
-	},
-	{
-		'desc':'Load',
-		'page':'load.html'
-	},
-	{
-		'desc':'Version history',
-		'page':'version_history.html'
-	},
-	{
-		'desc':'Database design',
-		'page':'database.html'
-	},
-	{
-		'desc':'Routing',
-		'page':'routing.html'
-	},
-	{
-		'desc':'Helpers',
-		'page':'helpers.html',
+		'page':'index.html',
 		'subpages':[
 			{
-				'desc':'Form',
+				'desc':'Installation',
+				'page':'installation.html'
+			},
+			{
+				'desc':'Specifications',
+				'page':'specifications.html'
+			}
+		]
+	},	
+	{
+		'desc':'Framework',
+		'page':'framework.html',
+		'subpages':[
+			{
+				'desc':'Conventions',
+				'page':'conventions.html'
+			},
+			{
+				'desc':'Controllers',
+				'page':'controllers.html'
+			},
+			{
+				'desc':'Views',
+				'page':'views.html'
+			},
+			{
+				'desc':'Models',
+				'page':'models.html'
+			},
+			{
+				'desc':'Load',
+				'page':'load.html'
+			},
+			{
+				'desc':'Routing',
+				'page':'routing.html'
+			},
+			{
+				'desc':'Form helper',
 				'page':'form_helper.html'
 			},
 			{
-				'desc':'HTML',
+				'desc':'HTML helper',
 				'page':'html_helper.html'
 			},
 			{
-				'desc':'Plural',
+				'desc':'Plural helper',
 				'page':'plural_helper.html'
+			}
+		]
+	},
+	{
+		'desc':'Menukaarten.nl',
+		'page':'menukaarten.html',
+		'subpages':[
+			{
+				'desc':'Version history',
+				'page':'version_history.html'
+			},
+			{
+				'desc':'Database design',
+				'page':'database.html'
+			},
+			{
+				'desc':'User security',
+				'page':'security.html'
 			}
 		]
 	},
