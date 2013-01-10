@@ -68,7 +68,98 @@ website.com/users/new
 </pre>
 
 <h2>Routes file</h2>
-<p>For creating nice looking URL's it's important to make sure the router first checks a special routes file if the requested URL is already mapped to a certain controller/action. This routes file could be a PHP file, an INI file o</p>
+<p>For creating nice looking URL's it's important to make sure the router first checks a special routes file if the requested URL is already mapped to a certain controller/action. This routes file could be a PHP file, a INI file, a JSON file, or anything else. There isn't really a standard for this, almost all frameworks use different approaches to this.</p>
+
+<p>What actually IS important, is the content of that routes file. All frameworks use different approaches for building a routes file. We've listed a few of the bigger frameworks and check how we could map the following URL's:</p>
+<table>
+	<tr>
+		<th>Route:</th>
+		<th>Controller:</th>
+		<th>Action:</th>
+		<th>Parameters</th>
+	</tr>
+	<tr>
+		<td>/login</td>
+		<td>users</td>
+		<td>login</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>/forgot_password</td>
+		<td>users</td>
+		<td>forgot_password</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>/profile/32</td>
+		<td>users</td>
+		<td>view</td>
+		<td>32</td>
+	</tr>
+	<tr>
+		<td>/users/edit/32</td>
+		<td>users</td>
+		<td>edit</td>
+		<td>32</td>
+	</tr>
+</table>
+
+Routes file: <span class="bold">Ruby on Rails:</span><br>
+<pre class="brush: php">
+match '/login',				to: 'users#login'
+match '/forgot_password',	to: 'users#forgot_password'
+match '/profile/:id',		to: 'users#view'
+match '/users/edit/:id'		to: 'users#edit'
+</pre>
+
+Routes file: <span class="bold">CakePHP:</span><br>
+<pre class="brush: php">
+Router::connect(
+	'/login',
+	array('controller' => 'users', 'action' => 'login')
+);
+Router::connect(
+	'/forgot_password',
+	array('controller' => 'users', 'action' => 'forgot_password')
+);
+Router::connect(
+	'/profile/*',
+	array('controller' => 'users', 'action' => 'view')
+);
+Router::connect(
+	'/users/edit/*',
+	array('controller' => 'users', 'action' => 'edit')
+);
+</pre>
+
+Routes file: <span class="bold">Kohana:</span><br>
+<pre class="brush: php">
+Route::set('login', '&lt;action&gt;',
+	array( 'action' => '(login|forgot_password)'
+))->defaults(array('controller' => 'users'));
+
+Route::set('profile', 'profile/&lt;id&gt;',
+	array( 'id' => '\d+')
+))->defaults(array('controller' => 'users', 'action' => 'view'));
+
+Route::set('profile', 'users/edit/&lt;id&gt;',
+	array( 'id' => '\d+')
+))->defaults(array('controller' => 'users', 'action' => 'edit'));
+</pre>
+
+<h2>Our preferred solution</h2>
+Routes file: <span class="bold">routes.json</span>
+<pre class="brush: php">
+{
+	'/login':			'users:login',
+	'/forgot_password':	'users:forgot_password',
+	'/profile/:id':		'users:view',
+	'/users/edit/:id':	'users:edit'
+}
+</pre>
+<h3>Why?</h3>
+<p>We have chosen for this solution because the functions of CakePHP and Kohana are pretty hard to understand, and for us almost impossible to code. Our solutions is based on the one used in Ruby on Rails, because it's just a few lines long and easy to understand. </p>
+
 
 <!-- END CONTENT -->
 	
