@@ -31,7 +31,7 @@
 
 <!-- START CONTENT -->
 <h1>Database design</h1>
-<p>During all the phases of the project the database changed a lot. The least amount of tables was 5, the largest amount 9. Some had foreign keys, others did not. In this section the differences and choices that were made are found.</p>
+<p>During all the phases of the project the database changed a lot. The least amount of tables was 5, the largest amount 9. One had foreign keys, the others did not. In this section the differences and choices that were made are found.</p>
 
 <h3>Version 0.1</h3>
 <img src="assets/images/menuk1.png" />
@@ -48,11 +48,15 @@ After some brainstorming the establishments and organisations tables were made. 
 
 <h3>Version 0.5</h3>
 <img src="assets/images/menuk5.png" />
-<p>Back to what is really needed was the reason why this database is significantly different than the previous version. This version is build without looking to the previous designs and made with a list of functionalities that needed to be build. Because of the fact that pictures were needed for different parts of the application, a table was created to store and find pictures.</p>
+<p>Back to what is really needed was the reason why this database is significantly different than the previous version. This version is build without looking to the previous designs and made with a list of functionalities that needed to be build. Because of the fact that pictures were needed for different parts of the application, a table was created to store and find pictures.<br />
+The order and state fields were added to products, categories and the pivot table that links those two. <br />
+At last all the tables got created_at and updated_at fields, so there would be more information on each row.
+</p>
 
 <h3>Version 0.6</h3>
 <img src="assets/images/menuk6.png" />
-<p></p>
+<p>The last version of the database during the project is version 0.6. The photo table is removed, because photos and images now get stored in folders in suck way, that the image module always can locate the files, just by checking where the request comes from.<br />
+The tables for locations were added again, so the information about locations could be stored again. The tables were created to split all the information, so there would not be one large table and the data could be saved seperated.</p>
 
 <!-- END CONTENT -->
 	
