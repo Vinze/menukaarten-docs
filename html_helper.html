@@ -33,12 +33,14 @@
 <h1>HTML helper</h1>
 <h2>Anchor</h2>
 <p>To create a anchor (link), you can use the following function. This function will automatically add the attribute target="_blank" when the link contains http:// of https://. So links on your own website can me relative from the base path.</p>
+
+Syntax:<br>
 <pre class="brush: php">
 html::a($link, $name, $attributes);
 </pre>
 <span class="bold">Parameters:</span>
 <ul class="list">
-	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$link <span class="small">string</span> <span class="small red">required</span></li>
 	<li>$name <span class="small">string optional</span></li>
 	<li>$attributes <span class="small">array optional</span></li>
 </ul>
@@ -60,7 +62,7 @@ html::image($link, $name, $attributes);
 </pre>
 <span class="bold">Parameters:</span>
 <ul class="list">
-	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$link <span class="small">string</span> <span class="small red">required</span></li>
 	<li>$attributes <span class="small">array optional</span></li>
 </ul>
 Example:
@@ -77,7 +79,7 @@ html::stylesheet($link, $attributes);
 </pre>
 <span class="bold">Parameters:</span>
 <ul class="list">
-	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$link <span class="small">string</span> <span class="small red">required</span></li>
 	<li>$attributes <span class="small">array optional</span></li>
 </ul>
 Example:
@@ -95,7 +97,7 @@ html::javascript($link, $attributes);
 </pre>
 <span class="bold">Parameters:</span>
 <ul class="list">
-	<li>$link <span class="small">string <span class="red">required</span></span></li>
+	<li>$link <span class="small">string</span> <span class="small red">required</span></li>
 	<li>$attributes <span class="small">array optional</span></li>
 </ul>
 Example:

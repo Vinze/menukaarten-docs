@@ -4,6 +4,14 @@ var pages = [
 		'page':'index.html'
 	},
 	{
+		'desc':'Installation',
+		'page':'installation.html'
+	},
+	{
+		'desc':'Specifications',
+		'page':'specifications.html'
+	},
+	{
 		'desc':'Conventions',
 		'page':'conventions.html'
 	},
@@ -22,6 +30,10 @@ var pages = [
 	{
 		'desc':'Models',
 		'page':'models.html'
+	},
+	{
+		'desc':'Load',
+		'page':'load.html'
 	},
 	{
 		'desc':'Version history',
@@ -64,6 +76,10 @@ var pages = [
 			{
 				'desc':'Framework security',
 				'page':'framework_security.html'
+			},
+			{
+				'desc':'Design patterns',
+				'page':'design_patterns.html'
 			},
 			{
 				'desc':'Routes file',

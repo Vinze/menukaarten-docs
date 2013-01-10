@@ -30,45 +30,34 @@
 				<div id="content">
 
 <!-- START CONTENT -->
-<h1>Routes decisions</h1>
-<p>The router is responsible for handling the requests to the right controllers, or 404 messages when the users requests a non existing page. Many frameworks like use the following format for mapping URL's to controllers:</p>
-<pre class="brush: php">
-// Format:
-website.com/:controller/:action/:id
+<h1>Technical specifications</h1>
+<p>The system was tested an works without any issues on a server with these specifications.</p>
+<table>
+	<tr>
+		<td>Webserver:</td>
+		<td>Apache</td>
+	</tr>
+	<tr>
+		<td>PHP version:</td>
+		<td>5.4 and higher</td>
+	</tr>
+	<tr>
+		<td>PHP extensions required</td>
+		<td>
+			mod_rewrite <span class="small">(needed for URL rewriting)</span><br>
+			gd <span class="small">(needed for image editing/resizing)</span>
+		</td>
+	</tr>
+	<tr>
+		<td>Database:</td>
+		<td>MySQL 5.4 and higher</td>
+	</tr>
+	<tr>
+		<td>MySQL extensions required</td>
+		<td>MySQLi</td>
+	</tr>
+</table>
 
-// Example #1:
-website.com/users/edit/592
-             |     |    |
-    controller     |    |
-              action    |
-                       id
-</pre>
-
-<p>Ruby on Rails uses a slightly different approach with handling request:</p>
-
-<pre class="brush: php">
-// Format #1:
-website.com/:controller/:action
-
-// Format #2
-website.com/:controller/:id/:action
-
-// Example #1:
-website.com/users/592/edit
-             |     |    |
-    controller     |    |
-                  id    |
-                   action
-
-// Example #2:
-website.com/users/new
-             |     |
-    controller     |
-              action
-</pre>
-
-<h2>Routes file</h2>
-<p>For creating nice looking URL's it's important to make sure the router first checks a special routes file if the requested URL is already mapped to a certain controller/action. This routes file could be a PHP file, an INI file o</p>
 
 <!-- END CONTENT -->
 	

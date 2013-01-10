@@ -30,45 +30,33 @@
 				<div id="content">
 
 <!-- START CONTENT -->
-<h1>Routes decisions</h1>
-<p>The router is responsible for handling the requests to the right controllers, or 404 messages when the users requests a non existing page. Many frameworks like use the following format for mapping URL's to controllers:</p>
-<pre class="brush: php">
-// Format:
-website.com/:controller/:action/:id
+<h1>Load</h1>
+<p>To load certain files and classes we've build an special load class. The load class includes the needed file(s), initializes the instance(s) when needed, and return the object.</p>
 
-// Example #1:
-website.com/users/edit/592
-             |     |    |
-    controller     |    |
-              action    |
-                       id
+<h2>Loading views</h2>
+<p>The view classes is automatically loaded in the base_controller. In case you want to you an other template you have to create a new instance of the view class. This can be done with:</p>
+<pre class="brush: php">
+// Load a view object with the default template
+$view = load::view();
+
+// Load a view object with no template
+$view = load::view(null)
+
+// Load a view object with the dashboard.php template
+$view = load::view('dashboard')
 </pre>
 
-<p>Ruby on Rails uses a slightly different approach with handling request:</p>
-
+<h2>Loading models</h2>
+<p>When you need a new instance of a model, you can call load::model.</p>
 <pre class="brush: php">
-// Format #1:
-website.com/:controller/:action
-
-// Format #2
-website.com/:controller/:id/:action
-
-// Example #1:
-website.com/users/592/edit
-             |     |    |
-    controller     |    |
-                  id    |
-                   action
-
-// Example #2:
-website.com/users/new
-             |     |
-    controller     |
-              action
+$user = load::model('User'); // Returns a new User model
 </pre>
 
-<h2>Routes file</h2>
-<p>For creating nice looking URL's it's important to make sure the router first checks a special routes file if the requested URL is already mapped to a certain controller/action. This routes file could be a PHP file, an INI file o</p>
+<h2>Initialize the database connection</h2>
+<p>The base model uses a MySQLi object for communication with the database. Because this framework uses the singleton design pattern there is a special function for loading the MySQLi object.</p>
+<pre class="brush: php">
+$mysqli = load::database();
+</pre>
 
 <!-- END CONTENT -->
 	
