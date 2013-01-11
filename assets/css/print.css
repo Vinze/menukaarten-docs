@@ -1,7 +1,16 @@
+#header-wrapper {
+	display: 				none;
+}
+
 #menu-wrapper {
-	display: 			none;
+	display: 				none;
 }
 
 #content {
-	border-left: 		none;
+	border-left: 			none;
+}
+
+#content-wrapper {
+	border-left: 			none;
+	margin-left: 			none;
 }

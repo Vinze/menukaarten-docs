@@ -35,7 +35,26 @@
 <p>Blabla</p>
 
 <h2>Singleton</h2>
-<p>Blabla</p>
+<p>We tried to implement a singleton design pattern and one of the best examples is using it for a database connection. In the base model we have got some function to communicate with the database. These connections to the database are made my the MySQLi object which is loaded when initializing the base model. Before using the singleton, every class created a new instance of the MySQLi object. After researching how a singleton exactly works (only one instance of an object exists), we came up with the following code:</p>
+<pre class="brush: php">
+class load {
+
+	private static $database;
+
+	public static function database() {
+		// Check if a database object already exists
+		if ( ! self::$database) {
+			// The database object does not yet exist, create a new instance
+			self::$database = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+		}
+		// Return the database object
+		return self::$database;
+	}
+}
+
+// Usage:
+$mysqli = load::database();
+</pre>
 <!-- END CONTENT -->
 	
 				</div>

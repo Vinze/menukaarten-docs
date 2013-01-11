@@ -32,6 +32,7 @@
 <!-- START CONTENT -->
 
 <h1>Controllers</h1>
+<p>A controller is the link between a user and the system. It provides the user with input by arranging for relevant views to present themselves in appropriate places on the screen. It provides means for user output by presenting the user with menus or other means of giving commands and data. The controller receives such user output, translates it into the appropriate messages and pass these messages on to one or more of the views. <sup><a href="#source_1">[1]</a></sup></p>
 <p>Controllers are loaded by the router and default to the following format:</p>
 <pre class="brush: plain">
 http://www.website.com/&lt;controller&gt;/&lt;action&gt;/&lt;id&gt;
@@ -73,6 +74,10 @@ class Users_Controller extends Base_Controller {
 
 Or to redirect to an external website:
 <pre class="brush: php">$this->redirect('http://www.google.com/')</pre>
+
+<p class="footnote">
+	[1] - <a href="http://www.codinghorror.com/blog/2008/05/understanding-model-view-controller.html" id="source_1" target="_blank">Codinghorror - Understanding model-view-controller</a> - 5 May 2008<br>
+</p>
 
 <!-- END CONTENT -->
 	

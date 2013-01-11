@@ -31,7 +31,7 @@
 
 <!-- START CONTENT -->
 <h1>Routes decisions</h1>
-<p>The router is responsible for handling the requests to the right controllers, or 404 messages when the users requests a non existing page. Many frameworks like use the following format for mapping URL's to controllers:</p>
+<p>The router is responsible for handling the requests to the right controllers, or 404 messages when the users requests a non existing page. Many frameworks use the following format for mapping URL's to controllers:</p>
 <pre class="brush: php">
 // Format:
 website.com/:controller/:action/:id
@@ -104,7 +104,7 @@ website.com/users/new
 	</tr>
 </table>
 
-Routes file: <span class="bold">Ruby on Rails:</span><br>
+Routes file: <span class="bold">Ruby on Rails:</span> <sup><a href="#source_1">[1]</a></sup><br>
 <pre class="brush: php">
 match '/login',				to: 'users#login'
 match '/forgot_password',	to: 'users#forgot_password'
@@ -112,7 +112,7 @@ match '/profile/:id',		to: 'users#view'
 match '/users/edit/:id'		to: 'users#edit'
 </pre>
 
-Routes file: <span class="bold">CakePHP:</span><br>
+Routes file: <span class="bold">CakePHP:</span> <sup><a href="#source_2">[2]</a></sup><br>
 <pre class="brush: php">
 Router::connect(
 	'/login',
@@ -132,7 +132,7 @@ Router::connect(
 );
 </pre>
 
-Routes file: <span class="bold">Kohana:</span><br>
+Routes file: <span class="bold">Kohana:</span> <sup><a href="#source_3">[3]</a></sup><br>
 <pre class="brush: php">
 Route::set('login', '&lt;action&gt;',
 	array( 'action' => '(login|forgot_password)'
@@ -151,15 +151,20 @@ Route::set('profile', 'users/edit/&lt;id&gt;',
 Routes file: <span class="bold">routes.json</span>
 <pre class="brush: php">
 {
-	'/login':			'users:login',
-	'/forgot_password':	'users:forgot_password',
-	'/profile/:id':		'users:view',
-	'/users/edit/:id':	'users:edit'
+	'/login':				'users:login',
+	'/forgot_password':		'users:forgot_password',
+	'/profile/:id':			'users:view',
+	'/users/edit/:id':		'users:edit'
 }
 </pre>
 <h3>Why?</h3>
 <p>We have chosen for this solution because the functions of CakePHP and Kohana are pretty hard to understand, and for us almost impossible to code. Our solutions is based on the one used in Ruby on Rails, because it's just a few lines long and easy to understand. </p>
 
+<p class="footnote">
+[1] - <a href="http://guides.rubyonrails.org/routing.html" id="source_1">Ruby on Rails Guide</a><br>
+[2] - <a href="http://book.cakephp.org/2.0/en/development/routing.html#connecting-routes" id="source_2">CakePHP Cookbook</a><br>
+[3] - <a href="http://kohanaframework.org/3.0/guide/kohana/routing" id="source_3">Kohana User Guide</a>
+</p>
 
 <!-- END CONTENT -->
 	
