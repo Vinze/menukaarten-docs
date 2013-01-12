@@ -30,24 +30,67 @@
 				<div id="content">
 
 <!-- START CONTENT -->
-<h1>Introduction</h1>
-<p>Welcome at our technical design and developer manual of this framework. For our school project we needed to build an menukaarten (menu cards) application. After doing some research on existing frameworks we decided to build our own, which is documented on these web pages. The section <a href="framework.html">Framework</a> contains information about the workings of this framework. The section <a href="menukaarten.html">Menukaarten.nl</a> contains information specific to the meukaarten application. And at the section <a href="decisions_research.html">Decisions &amp; Research</a> you can find our justification of the design choices we have made.</p>
-<p>For more information you can contact Vincent Bremer (vbremer89[at]gmail[dot]com or Douwe de Haan (douwedehaan[at]live[dot]nl)</p>
+<h1>Directory Structure</h1>
 
-<div class="note">
-	<span class="bold">Todo</span><br>
-	<ul>
-		<li>Remove this todo list</li>
-		<li>Models (validation) - Douwe</li>
-		<li>Installation - Douwe</li>
-		<li>Routing (note at the top) - Douwe</li>
-		<li>Helpers (include all helpers and fill the actual helper page) - Vincent</li>
-		<li>Decisions and research (needs a story) - Douwe</li>
-		<li>Design Patterns - Douwe</li>
-		<li>Structure - Vincent</li>
-		<li>Weblog example - Douwe</li>
-	</ul>
-</div>
+<table>
+	<tr>
+		<th>Directory</th>
+		<th>Contains</th>
+	</tr>
+	<tr>
+		<td>application</td>
+		<td>All files needed to build an application</td>
+	</tr>
+	<tr>
+		<td>application\controllers</td>
+		<td>The application controllers (see: <a href="controllers.html">Controllers</a>)</td>
+	</tr>
+	<tr>
+		<td>application\models</td>
+		<td>The application models (see: <a href="models.html">Models</a>)</td>
+	</tr>
+	<tr>
+		<td>application\views</td>
+		<td>The application view files (see: <a href="views.html">Views</a>)</td>
+	</tr>
+	<tr>
+		<td>assets</td>
+		<td>Additions public available files</td>
+	</tr>
+	<tr>
+		<td>assets\css</td>
+		<td>Stylesheets</td>
+	</tr>
+	<tr>
+		<td>assets\i18n</td>
+		<td>Language (translation) files</td>
+	</tr>
+	<tr>
+		<td>assets\img</td>
+		<td>Images</td>
+	</tr>
+	<tr>
+		<td>config</td>
+		<td>Configuration files for the application and database, and the routes file</td>
+	</tr>
+	<tr>
+		<td>core</td>
+		<td>This is the core of the framework</td>
+	</tr>
+	<tr>
+		<td>core\helpers</td>
+		<td>All autoloaded helper files</td>
+	</tr>
+	<tr>
+		<td>core\modules</td>
+		<td>All autoloaded modules</td>
+	</tr>
+	<tr>
+		<td>templates</td>
+		<td>Templates which are used by the base view class</td>
+	</tr>
+</table>
+
 <!-- END CONTENT -->
 	
 				</div>

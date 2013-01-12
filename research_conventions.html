@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Menukaarten-docs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="assets/css/stylesheet.css" media="screen,print">		
+		<link rel="stylesheet" href="assets/css/print.css" media="print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shCore.css" media="screen,print">
+		<link rel="stylesheet" type="text/css" href="assets/css/shThemeDefault.css" media="screen,print">
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter.js"></script>
+		<script type="text/javascript" src="assets/js/build_menu.js"></script>
+	</head>
+	
+	<body>
+		<div id="header-wrapper">
+			<div id="header">
+				<h1>Documentation SexyFramework</h1>
+				<span>Created by Vincent Bremer &amp; Douwe de Haan</span>
+			</div>
+		</div>
+		<div id="container">
+			<div id="menu-wrapper">
+				<div id="menu">
+					<h1>Table of contents</h1>
+					<ul></ul>
+				</div>
+			</div>
+			<div id="content-wrapper">
+				<div id="content">
+
+<!-- START CONTENT -->
+<h1>Code conventions</h1>
+<h2>CamelCase, underscore</h2>
+<pre class="brush: php">
+// Option 1:
+class users_controller extends base_controller {
+}
+
+// Option 2
+class UsersController extends BaseController {
+}
+
+// Option 3
+class Users_Controller extends Base_Controller {
+}
+</pre>
+
+<h2>Brackets and indentation</h2>
+<p>There are many options regarding indentation conventions. We looked up what existing frameworks would advice regarding indentation, but there isn't really a standard format. Wikipedia <a href="#source_1" class="sup">[1]</a> lists some different styles, here are the ones we considered:</p>
+<pre class="brush: php">
+// Option 1 (1TBS style)
+if ($value > 3) {
+	return true;
+} else {
+	return false;
+}
+
+// Option 2 (Our choice)
+if ($value > 3) {
+	return true;
+}
+else {
+	return false;
+}
+
+// Option 3 (Allman style)
+if ($value > 3)
+{
+	return true;
+}
+else
+{
+	return false;
+}
+
+// Option 4: (PHP alternative if/else structure)
+if ($value > 3):
+	return true;
+else:
+	return false;
+endif;
+</pre>
+<p>
+Our first priority was to make sure the code was clear and easy to match opening and closing tags to each other. Our second priority was to keep the number of lines needed for statements as low as possible. To match the opening/closing tags, option 3 would be the best option in our opinion. But we didn't like the fact that is consumes 4 lines just for the brackets. The shortest option is option 1, but we found it quite hard to identify the matching brackets. So we came op to use option 2, this combines the best of option 1 and 3.
+</p>
+
+<h2>Mixing PHP in the view files</h2>
+<p>
+When using PHP in the HTML view files, we choose to use the alternative PHP if/else syntax. We did this because it just take up one line for the statement, and it's easy to read an if/else or foreach loop ends.
+</p>
+<pre class="brush: xml">
+&lt;?php foreach ($users as $user): ?&gt;
+	<div>
+		<h1>
+			&lt;?php echo $user-&gtname ?&gt
+		</h1>
+		<p>
+			&lt;?php echo $user-&gtdescription ?&gt
+		</p>
+		<span>
+			&lt;?php echo $user-&gtcreated_at ?&gt
+		</span>
+	</div>
+&lt;?php endforeach; ?&gt;
+</pre>
+
+<h2>Variables</h2>
+<p>
+Because we are using a underscore in the controller model and view names, it would be obvious to name variables the same way. To make sure it's easily readable, we keep the convention of lowercase with a underscore.
+</p>
+<pre class="brush: php">
+// CamelCase
+$UserConfig = array();
+
+// camelCase
+$userConfig = array();
+
+// under_score
+$user_config = array();
+</pre>
+
+<p class="footnote">
+[1] - <a href="http://en.wikipedia.org/wiki/Indent_style" id="source_1">Wikipedia - Indent style</a> - 3 January 2013
+</p>
+<!-- END CONTENT -->
+	
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/SyntaxHighlighter_settings.js"></script>
+	</body>
+</html>

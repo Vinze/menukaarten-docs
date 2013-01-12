@@ -18,6 +18,10 @@ var pages = [
 		'page':'framework.html',
 		'subpages':[
 			{
+				'desc':'Directory Structure',
+				'page':'directory_structure.html'
+			},
+			{
 				'desc':'Conventions',
 				'page':'conventions.html'
 			},
@@ -78,20 +82,28 @@ var pages = [
 		'page':'decisions_research.html',
 		'subpages':[
 			{
-				'desc':'Where clauses',
-				'page':'where_clauses.html'
+				'desc':'Code conventions',
+				'page':'research_conventions.html'
 			},
 			{
-				'desc':'Framework security',
-				'page':'framework_security.html'
+				'desc':'Database categories',
+				'page':'database_categories.html'
 			},
 			{
 				'desc':'Design patterns',
 				'page':'design_patterns.html'
 			},
 			{
+				'desc':'Framework security',
+				'page':'framework_security.html'
+			},
+			{
 				'desc':'Routes file',
 				'page':'routes_decicions.html'
+			},			
+			{
+				'desc':'Where clauses',
+				'page':'where_clauses.html'
 			}
 		]
 	}
