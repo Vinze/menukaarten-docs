@@ -191,7 +191,24 @@ $user->update($data, 'country = ? AND email LIKE ?', array('The Netherlands', '%
 </pre>
 
 <h2>Data validation</h2>
-<p>aaa</p>
+<p>To be sure the data that gets stored in the database is data you want, there is a helper with validation methods. In the base model there is a method that communicates with the helper. The steps for validating your data are explained here.</p>
+
+<p>first of all, check what type of data is going to be stored in the database and make sure the fieldnames in the database are the same as the values in your array of object that will be passed to the model. <br />
+After that, go into the model that needs the validation and make an array like the following one.
+</p>
+<pre class="brush: php">
+protected $_validation_rules = array(
+	'firstname'	=> array('not_empty', 'min_length:3', 'max_length:50'),
+	'lastname'	=> array('not_empty', 'min_length:5', 'max_length:60'),
+	'phone'		=> array('not_empty', 'is_numeric', 'min_length:10', 'max_length:10'),
+	'email'		=> array('not_empty', 'is_email'),
+	'country'	=> array('regex:[^0-9]*(land)\b')
+);
+</pre>
+<p>The validation rules are pretty simple and most of the names of the rules explain what they do. Each of the result will be put in an array.</p>
+<p class="note">
+	If you want to create more rules, please follow this pattern. If it is a validation to check the type of the data, do not use a colon. If you need to check the data with a value, like length or the value of an integer, use the colon.
+</p>
 <p class="footnote">
 	[1] - <a href="http://www.codinghorror.com/blog/2008/05/understanding-model-view-controller.html" id="source_1" target="_blank">Codinghorror - Understanding model-view-controller</a> - 5 May 2008<br>
 </p>
