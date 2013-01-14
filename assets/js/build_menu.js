@@ -129,13 +129,14 @@ function build_menu(pages) {
 var i = 0;
 function total_documentation(pages) {
 	$.each(pages, function (index, item){
-		
-		if (typeof item.subpages != "undefined") {
-			total_documentation(item.subpages);
-		}
+	
 		var new_div = '<div id=' + i + '_content_block></div>';
 		$('#content-wrapper').append(new_div);
 		$('#' + i + '_content_block').load(item.page + ' #content');
+	
+		if (typeof item.subpages != "undefined") {
+			total_documentation(item.subpages);
+		}	
 		
 		console.log(i);
 		
