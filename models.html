@@ -205,7 +205,7 @@ protected $_validation_rules = array(
 	'country'	=> array('regex:[^0-9]*(land)\b')
 );
 </pre>
-<p>The validation rules are pretty simple and most of the names of the rules explain what they do. Each of the result will be put in an array.</p>
+<p>The validation rules are pretty simple and most of the names of the rules explain what they do. Not_empty will check wether the field is empty or not. The min_length checks if the length of the value is longer than the number that is given behind the colon. Max_length does pretty much the same, but the length must not exceed the number given. Is_numeric and is_email both check for the type of the value. regex checks if the value of the field matches that of the one given. In the example above, it checks wether the value of country ends with land. Each of the result will be put in an array.</p>
 <p class="note">
 	If you want to create more rules, please follow this pattern. If it is a validation to check the type of the data, do not use a colon. If you need to check the data with a value, like length or the value of an integer, use the colon.
 </p>
