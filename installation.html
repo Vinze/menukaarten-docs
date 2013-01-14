@@ -31,7 +31,81 @@
 
 <!-- START CONTENT -->
 <h1>Installation</h1>
-<p>Lorum ipsum dolar sit amet...</p>
+<p>To setup the application, there are a few actions that should be done, after which the application should work.</p>
+<h2>Database Preparations</h2>
+<p>First of all, a database and user for that database should be made. This is very important, because without database the application can not work. The name of the database is not very important, it can be anything you choose. Make sure you know the following information before continuing:</p>
+<ul>
+	<li>Database Host (can be 'localhost', an IP-address or an URL)</li>
+	<li>Database Name</li>
+	<li>Username</li>
+	<li>Password</li>
+	<li>MySQL Port</li>
+</ul>
+<br />
+<p class="note">Note that the MySQL Port is usually set to port 3306, but it could be different. If your application can not connect to the database, please check the credentials. If they are valid, ask your hosting provider what the port is on which MySQL communicates.</p>
+<h2>File Preparations</h2>
+<p>When the database is setup, it is time to start uploading the files. Upload all the files into the directory you want them. This directory could be the root of your host, or a subdirectory. Make sure you also copy the .htaccess file, which is very important for the application to work.</p>
+<h2>Database connection</h2>
+<p>To connect the application with the database the database.php file in the config folder should be edited. The file should end up like this:</p>
+<pre class="brush: php">
+&lt;?php
+// Database host
+define('DB_HOST', 'hostname');
+
+// Database name
+define('DB_NAME', 'databasename');
+
+// Database user
+define('DB_USER', 'username');
+
+// Database password
+define('DB_PASS', 'password');
+
+// Database port
+define('DB_PORT', 3306);
+?&gt;
+</pre>
+
+<h2>Application settings</h2>
+<p>The final step to complete the installation of the application is entering the domain information. If the application is installed in the root of your hosting, this step can be skipped. If it is on a subdomain or in a subfolder, this step has to be completed in order to get the framework started.</p>
+<p>If the application is installed in a subfolder, the name of this subfolder should be defined in the BASE variable. Put the name of the subfolder after the / were this is noted.<p>
+<p>If the application is installed in a subdomain, the subdomain should be defined where the note says.<p>
+
+<pre class="brush: php">
+&lt;?php
+// Turn on the debug mode to show SQL queries and disable redirects
+define('DEBUG_MODE', 0);
+
+// Set the default template
+define('DEFAULT_TEMPLATE', 'dashboard');
+define('DEFAULT_CONTROLLER', 'menu');
+define('DEFAULT_ACTION', 'index');
+
+if (DEBUG_MODE == 1) {
+	// Set the error_reporting to show all errors
+	//error_reporting(E_ALL);
+}
+else {
+	// Set the error_reporting to show all errors except notices
+	error_reporting(E_ALL ^ E_NOTICE);
+}
+
+//SUBFOLDER: Set the name of the subfolder after the / if the application is installed in a subfolder.
+define('BASE', $_SERVER['HTTP_HOST'].'/'); 
+
+//SUBDOMAIN: Set the name of the subdomain between the quotes
+define('SUBDOMAIN', '');
+
+// Set the base path without an / (for example: www.mywebsite.com/test)
+define('BASE_PATH', 'http://'.SUBDOMAIN.BASE);
+
+
+// Some global variables for a feature we may want to implement
+define('DOCROOT', __DIR__.'/');
+define('COREPATH', DOCROOT.'../core');
+define('APPDATA', COREPATH.'/application');
+?&gt;
+</pre>
 
 <!-- END CONTENT -->
 	
